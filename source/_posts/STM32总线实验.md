@@ -5,7 +5,7 @@ tags:
 - IIC
 categories:
 - STM32
-thumbnail: http://p7tst3obo.bkt.clouddn.com/iic/iic.jpg?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
+thumbnail: http://blog.cyang.top/iic/iic.jpg?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
 ---
 
 
@@ -23,7 +23,7 @@ thumbnail: http://p7tst3obo.bkt.clouddn.com/iic/iic.jpg?imageView2/0/interlace/1
 - 4、一问一答式。每次数据传送都需要进行应答。每个数据位均为8位，后面会跟一个从机或者主机的应答位，因此每帧数据为9位。
 - 5、每次数据传送都是由主机产生终止信号来结束，但是，若主机希望继续占用总线进行新的数据传送，则可以不产生终止信号，马上再次发送起始信号对另从机进行寻址。
 - 6、起始信号s；终止信号p；0/应答；1/非应答这四种信号的表示方法如下图。
-![image](http://p7tst3obo.bkt.clouddn.com/iic/iic.jpg?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![image](http://blog.cyang.top/iic/iic.jpg?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 
 ## 部分代码

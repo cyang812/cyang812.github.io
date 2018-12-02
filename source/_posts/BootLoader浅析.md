@@ -4,7 +4,7 @@ tags:
 - BootLoader
 categories:
 - 硬件
-thumbnail: http://p7tst3obo.bkt.clouddn.com/20161128154143013?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
+thumbnail: http://blog.cyang.top/20161128154143013?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
 ---
 
 
@@ -20,11 +20,11 @@ thumbnail: http://p7tst3obo.bkt.clouddn.com/20161128154143013?imageView2/0/inter
 - 4、BootLoader工程生成的.hex或者.bin文件通常下载到ROM或Flash中的首地址，这样可以保证上电后先运行BootLoader程序。而APP工程生成的.hex或者.bin文件则下载到ROM或Flash中BootLoader后面的地址中。也就是说，存在ROM/Flash中的内容是分为两部分的。
 - 5、要实现在同一个ROM/Flash中保存两段程序，并且保证不能相互覆盖，则需要在下载程序时指定地址。如在Keil下，可以进行如下的调整。
 
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20161128154143013?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20161128154143013?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 - 6、实际上，在STM32系列的单片机中，Flash本身就是分扇区的，一个扇区16KB的样子，具体可以查看手册。那么就可以用从第一个扇区的首地址开始下载BootLoader的程序，而从第二个扇区的起始地址开始下载APP程序。如下为STM32F4系列芯片的Flash模块。
 
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20161128154224828?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20161128154224828?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 - 7、单片机上电之后开始执行BootLoader程序，这是单片机会检测用户是否有升级应用程序（APP）的请求，具体表现有很多种，例如检测内存卡，Nand Flash中是否包含升级文件，串口/I2C/SPI等外设接口是否传来升级文件。据说还有使用GSM来升级的。
 - 8、所谓的升级，就是将ROM/Flash中存储APP程序的扇区内容擦除并写入新文件。例如一次固件升级的过程可以是：1、单片机上电执行BootLoader，2、BootLoader查找升级文件，3、若找到文件，擦除Flash中的部分扇区（存APP的），4、在擦除的扇区写入升级的文件，5、写入完成，读取数据检验是否出错，6、若数据一致，升级成功，删除升级文件，7、BootLoader程序跳转到APP程序执行。删除升级文件是为了下次上电后不再进行升级。

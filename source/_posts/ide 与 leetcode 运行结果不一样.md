@@ -5,19 +5,19 @@ tags:
 - C语言
 categories:
 - 编程
-thumbnail: http://p7tst3obo.bkt.clouddn.com/leetcode/diff.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
+thumbnail: http://blog.cyang.top/leetcode/diff.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
 ---
 
 
 在做 leetcode 的[第 15 题](https://leetcode.com/problems/3sum/description/)， `3Sum` 时发现，同样的代码在本地运行的结果是正确的，而在 leetcode 的服务器上结果却是错误的。而且检查了程序中，也并没有使用全局或者静态变量。
 
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/leetcode/diff.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/leetcode/diff.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 通过打印，仔细对比两种环境下的输出发现，原来是代码有一条语句指针指向了数组外边的第一个地址。语句的内容是比较当前地址的值是否和后一个地址的值相同， 由于后一个地址实际上已经发生了溢出，在当前地址为数组最后一个元素时，下一个地址就在数组外边了，这个地址的值是不确定的。在本地调试时，由于两个地址的值不同，所以程序结果正确，而在 leetcode 服务器上运行时，这两个值相同，因此程序最终的结果就错误了。
 
 <!-- more -->
 
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/leetcode/debug.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/leetcode/debug.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 下面是完整代码，出错的代码在第 62 行。
 ```c

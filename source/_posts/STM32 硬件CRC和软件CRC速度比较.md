@@ -6,7 +6,7 @@ tags:
 - STM32
 categories:
 - 嵌入式
-thumbnail: http://p7tst3obo.bkt.clouddn.com/20180312224132752?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
+thumbnail: http://blog.cyang.top/20180312224132752?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
 ---
 
 
@@ -24,12 +24,12 @@ CRC 生成多项式： 0x782f
 # 三、测试结果
 迭代24464次后，从缓存中找到同步头。
 不开启编译时间优化时，软件算法用时238ms，硬件CRC用时220ms。
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20180312224132752?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20180312224132752?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 <!-- more -->
 
 开启编译时间优化后，软件算法用时159ms，硬件CRC用时186ms。
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20180312224305220?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20180312224305220?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 # 四、附测试代码
 

@@ -5,11 +5,11 @@ tags:
 - STM32
 categories:
 - STM32
-thumbnail: http://p7tst3obo.bkt.clouddn.com/STM32%20SysTick.png
+thumbnail: http://blog.cyang.top/STM32%20SysTick.png
 ---
 
 
-![](http://p7tst3obo.bkt.clouddn.com/STM32%20SysTick.png)
+![](http://blog.cyang.top/STM32%20SysTick.png)
 
 <!-- more -->
 
@@ -24,9 +24,9 @@ SysTick 定时器是实时操作系统专用的，但是也可以作为一个标
 
 该定时器具有四个寄存器，如下表所示：
 
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170302190239935?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20170302190239935?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170302190300373?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20170302190300373?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 一般，该定时器的计数周期为一毫秒，则寄存器`LOAD`中的值根据 MCU 主频的不同而不同。例如，主频为 16MHz,则填入该寄存器的值为16 000。也就是，每一秒执行16 000 000 次，那么每毫秒执行 16 000 次。
 
@@ -36,22 +36,22 @@ SysTick 定时器是实时操作系统专用的，但是也可以作为一个标
 
 - 1、芯片上电或者复位后，运行 `HAL_Init()`这个函数，用于一些初始化的设置，这 其中就包括对 SysTick 定时器的设置的`HAL_InitTick()`。
 
-  ![init](http://p7tst3obo.bkt.clouddn.com/20170302190605046?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+  ![init](http://blog.cyang.top/20170302190605046?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
-  ![inittick](http://p7tst3obo.bkt.clouddn.com/20170302190616640?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+  ![inittick](http://blog.cyang.top/20170302190616640?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 - 2、在`HAL_InitTick()`中，设置了定时器计数值，开启定时器，设置定时器的中断优先级。
 
-  ![hal_InitTick](http://p7tst3obo.bkt.clouddn.com/20170302190814373?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+  ![hal_InitTick](http://blog.cyang.top/20170302190814373?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 
 - 3、由于芯片默认使用的时钟为内部高速时钟，此时定时器的时钟源`HCLK`的大小，即`SystemCoreClock`的值，为内部高速时钟的频率。下一步就会去配置系统时钟，为了达到更高的主频，此时可能会使用外部高速时钟。
 
-  ![cube](http://p7tst3obo.bkt.clouddn.com/20170302190850796?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+  ![cube](http://blog.cyang.top/20170302190850796?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 - 4、随着时钟的改变，主频会发生变化，相应的定时器的值也要根据主频做出调整，以保障定时器的计数周期始终保持不变，为 1ms。但是这个不必我们再次去设置，因为每次调用 `HAL_RCCC_ClockConfig()` 去配置时钟后，都会自动的重新计算`SystemCoreClock`的值，并调用 `HAL_InitTicK()` 设置定时器的计数值。
 
-  ![update](http://p7tst3obo.bkt.clouddn.com/20170302190906671?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+  ![update](http://blog.cyang.top/20170302190906671?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 # 三、总结
 

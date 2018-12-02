@@ -6,7 +6,7 @@ tags:
 - Android
 categories:
 - Android
-thumbnail: http://p7tst3obo.bkt.clouddn.com/calculator/calculator.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
+thumbnail: http://blog.cyang.top/calculator/calculator.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
 ---
 
 
@@ -25,7 +25,7 @@ thumbnail: http://p7tst3obo.bkt.clouddn.com/calculator/calculator.png?imageView2
 - 5、加法控件的点击逻辑：首先需要将第一个数字从`TextView.getText()`转化成一个Item对象并添加到列表里面，之后会执行一个`checkAndComputer`函数，这个函数用于列表里面是否有大于或等于三个元素，从而对其进行挑选并计算结果，最终显示出来。
 - 6、`checkAndComputer`这个函数在检测到有三个元素后就会进行计算，并且删除了之前列表里的三个元素，将计算的结果重新添加进列表作为结果，因此在展示结果的时候可以直接显示列表的第一个元素。
 - 7、基本流程图
-![计算器流程图](http://p7tst3obo.bkt.clouddn.com/calculator/calculator.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![计算器流程图](http://blog.cyang.top/calculator/calculator.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 ## 部分代码
 - 1、基本元素Item类

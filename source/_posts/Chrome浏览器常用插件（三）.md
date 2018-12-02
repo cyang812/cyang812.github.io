@@ -6,7 +6,7 @@ tags:
 - 插件
 categories:
 - 总结
-thumbnail: http://p7tst3obo.bkt.clouddn.com/20160924222043403?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
+thumbnail: http://blog.cyang.top/20160924222043403?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
 ---
 
 
@@ -20,13 +20,13 @@ thumbnail: http://p7tst3obo.bkt.clouddn.com/20160924222043403?imageView2/0/inter
 <!-- more -->
 
 - 在Chrome浏览器里，默认状态下划词是不会有反应的，如下图所示：
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20160924222043403?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20160924222043403?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 - 但是可以将划词拖动到标签页，那么将在搜索引擎中搜索，不过这种方式需要拖动的距离比较远，如下图：
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20160924222723749?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20160924222723749?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 - 而使用这款插件后，向左边拖动可从谷歌搜索，向右边拖到可从百度搜索，如下图：
 **左边拖动 谷歌搜索**
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20160924223554127?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20160924223554127?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 **右边拖动 百度搜索**
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20160924223603895?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20160924223603895?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)

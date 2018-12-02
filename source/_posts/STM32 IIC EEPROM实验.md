@@ -6,11 +6,11 @@ tags:
 - EEPROM
 categories:
 - STM32
-thumbnail: http://p7tst3obo.bkt.clouddn.com/STM32%20EEPROM.png
+thumbnail: http://blog.cyang.top/STM32%20EEPROM.png
 ---
 
 
-![](http://p7tst3obo.bkt.clouddn.com/STM32%20EEPROM.png)
+![](http://blog.cyang.top/STM32%20EEPROM.png)
 
 # 一、项目说明
 

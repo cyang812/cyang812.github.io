@@ -5,11 +5,11 @@ tags:
 - IIC
 categories:
 - 硬件
-thumbnail: http://p7tst3obo.bkt.clouddn.com/iic/iic.jpg?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
+thumbnail: http://blog.cyang.top/iic/iic.jpg?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
 ---
 
 
-![](http://p7tst3obo.bkt.clouddn.com/iic/iic.jpg?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![](http://blog.cyang.top/iic/iic.jpg?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 > 关于IIC的其他说明已在[《STM32总线实验》](http://cyang.tech/2016/07/18/STM32%E6%80%BB%E7%BA%BF%E5%AE%9E%E9%AA%8C/)中有过介绍。
 

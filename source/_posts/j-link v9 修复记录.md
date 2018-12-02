@@ -5,7 +5,7 @@ tags:
 - stm32
 categories:
 - 嵌入式
-thumbnail: http://p7tst3obo.bkt.clouddn.com/j-link/pic.jpg?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
+thumbnail: http://blog.cyang.top/j-link/pic.jpg?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
 ---
 
 
@@ -22,21 +22,21 @@ thumbnail: http://p7tst3obo.bkt.clouddn.com/j-link/pic.jpg?imageView2/0/interlac
 - 1、准备另一个可以使用的 j-link。这里使用的就是这种只有四根线，只支持 SWD 的 j-link OB。
 - 2、拆开坏了的 j-link v9， 可以看到 PCB 上留有四个圆孔，分别是 VCC，GND， SCK，SWD。具体的位置要看对应的原理图，因为有很多不同的 j-link 。
 - 3、使用 SWD 的方式连接好的 j-link 和 坏的 j-link 。
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/j-link/pic.jpg?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/j-link/pic.jpg?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 - 4、打开 j-flash， 新建项目，配置芯片为 STM32F205RC，使用 SWD 接口，点击连接。如果无法连接，可能是上一部四条线没有接对，可更改后在尝试。也不可以不用新建项目，直接用 j-flash 打开 `restore.jflash`。
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/j-link/new.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/j-link/choose.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/j-link/new.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/j-link/choose.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 - 5、点击 file, 选择 open data file，打开恢复固件 `JLinkAll.hex`。
 
 - 6、下载固件，完成修复。
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/j-link/program.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/j-link/succ.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/j-link/end.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/j-link/program.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/j-link/succ.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/j-link/end.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 - 7、完成之后，j-link v9 就修复了，可正常使用了。
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/j-link/download.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/j-link/download.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 # 修复方法二
 - 1、前面连接的方法和方法一相同，区别在于下载的东西不同。方法一中下载的固件是完整的，版本比较旧，大概是14年的版本，但是也可以用。

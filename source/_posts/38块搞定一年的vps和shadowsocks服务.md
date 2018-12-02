@@ -6,13 +6,13 @@ tags:
 - 梯子
 categories:
 - 教程
-thumbnail: http://p7tst3obo.bkt.clouddn.com/CSDN%E5%9B%9E%E6%94%B6%E7%AB%99.png
+thumbnail: http://blog.cyang.top/CSDN%E5%9B%9E%E6%94%B6%E7%AB%99.png
 ---
 
 
 这是一篇半年前写的教程，之前放在CSDN，最近不知道为什么突然被管理员删除了。现在放在个人博客。
 
-![](http://p7tst3obo.bkt.clouddn.com/CSDN%E5%9B%9E%E6%94%B6%E7%AB%99.png)
+![](http://blog.cyang.top/CSDN%E5%9B%9E%E6%94%B6%E7%AB%99.png)
 
 # 原文如下：
 
@@ -22,14 +22,14 @@ thumbnail: http://p7tst3obo.bkt.clouddn.com/CSDN%E5%9B%9E%E6%94%B6%E7%AB%99.png
 
 ## 一、前期准备
 1、购买vps，我使用的是由[openVZVPS](https://www.50vz.net/)提供的38元一年的服务。使用支付宝付款。
-![](http://p7tst3obo.bkt.clouddn.com/20160630220341378?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![](http://blog.cyang.top/20160630220341378?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 2、SecureCRT，使用ssh连接服务器。或者使用xshell，这个软件个人免费使用。
-![](http://p7tst3obo.bkt.clouddn.com/20160630220558149?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![](http://blog.cyang.top/20160630220558149?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 ## 二、安装步骤
 1、重装VPS系统。默认安装的系统是cent OS,这里的教程是基于Ubuntu的。所以需要重装系统。重装时需要设置系统密码。这个密码很重要。
-![](http://p7tst3obo.bkt.clouddn.com/20160630220613614?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![](http://blog.cyang.top/20160630220613614?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 2、连接ssh服务器。主机名就是你vps的ip，还有端口号，这些都可以到你的vps查看，用户名是root,然后点连接，点连接后会让你输入密码，密码就是你安装系统的时候设置的密码。连上服务器之后就要在服务器上安装shadowsocks了。
 

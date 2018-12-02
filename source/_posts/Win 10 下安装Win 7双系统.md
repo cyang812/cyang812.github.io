@@ -6,10 +6,10 @@ tags:
 - 双系统
 categories:
 - 教程
-thumbnail: http://p7tst3obo.bkt.clouddn.com/win10win7%E5%8F%8C%E7%B3%BB%E7%BB%9F.jpg
+thumbnail: http://blog.cyang.top/win10win7%E5%8F%8C%E7%B3%BB%E7%BB%9F.jpg
 ---
 
-![](http://p7tst3obo.bkt.clouddn.com/win10win7%E5%8F%8C%E7%B3%BB%E7%BB%9F.jpg)
+![](http://blog.cyang.top/win10win7%E5%8F%8C%E7%B3%BB%E7%BB%9F.jpg)
 
 上一篇文章说了在Win10下使用VM虚拟机安装双系统的教程。其实虚拟机已经可以解决很多的需求了。但问题在与，网卡的MAC地址不同。在虚拟机里就算使用桥接模式，可以正常链接网络，但还是不能使用正常网卡的MAC地址。
 
@@ -23,7 +23,7 @@ thumbnail: http://p7tst3obo.bkt.clouddn.com/win10win7%E5%8F%8C%E7%B3%BB%E7%BB%9F
 - 1、建议到[msdn](http://www.itellyou.cn/)下载官网镜像。下载结束会直接进行解压缩。
 
 - 2、双击压缩包里的setup.exe，即可直接进行安装。
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20160911195907037?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20160911195907037?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 - 3、在选择安装位置时，一定要选择新分出来的区。
 
@@ -33,7 +33,7 @@ thumbnail: http://p7tst3obo.bkt.clouddn.com/win10win7%E5%8F%8C%E7%B3%BB%E7%BB%9F
 
 # 三、可能出项的错误
 - 1、Windows安装程序无法将Windows配置为在此计算机的硬件上运行。
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20160911195651832?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20160911195651832?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 **解决方法：**
 当出项如上提示的时候，按下shift+f10会打开命令窗口，进入到C:\Windows\system32\oobe文件夹，输入msoobe回车然后输入msoobe即可进入下一步操作，但是错误提示框仍在，不用理会按照屏幕提示输入相应的信息直至完成系统的安装。安装好的Win7系统没有任何问题。
 
@@ -47,7 +47,7 @@ thumbnail: http://p7tst3obo.bkt.clouddn.com/win10win7%E5%8F%8C%E7%B3%BB%E7%BB%9F
 
 # 四、安装结果
 在win7下的目录结构
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20160911195941643?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20160911195941643?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 在win10下的目录结构
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20160911195950538?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20160911195950538?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)

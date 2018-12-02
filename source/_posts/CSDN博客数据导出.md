@@ -7,7 +7,7 @@ tags:
 - csdn
 categories:
 - 编程
-thumbnail: http://p7tst3obo.bkt.clouddn.com/20180428144406106?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
+thumbnail: http://blog.cyang.top/20180428144406106?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
 ---
 
 
@@ -29,10 +29,10 @@ CSDN2HEXO 是一款基于[CSDN开放平台](http://open.csdn.net/) 的 csdn blog
 ## 结果展示
 - 1、文章列表 
 
-	![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20180428144406106?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+	![这里写图片描述](http://blog.cyang.top/20180428144406106?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 	
 - 2、文章内容 	
-	![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20180428144425504?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+	![这里写图片描述](http://blog.cyang.top/20180428144425504?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 
 ## 特性

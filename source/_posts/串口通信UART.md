@@ -4,11 +4,11 @@ tags:
 - UART
 categories:
 - 硬件
-thumbnail: http://p7tst3obo.bkt.clouddn.com/UART.jpg
+thumbnail: http://blog.cyang.top/UART.jpg
 ---
 
 
-![](http://p7tst3obo.bkt.clouddn.com/UART.jpg)
+![](http://blog.cyang.top/UART.jpg)
 
 
 ## 一、知识点

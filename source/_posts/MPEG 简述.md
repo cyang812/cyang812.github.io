@@ -6,7 +6,7 @@ tags:
 - MP3
 categories:
 - 总结
-thumbnail: http://p7tst3obo.bkt.clouddn.com/MPEG/bitrate.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
+thumbnail: http://blog.cyang.top/MPEG/bitrate.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
 ---
 
 # MPEG AUDIO 简介
@@ -24,13 +24,13 @@ MPEG 音频压缩算法由联合图像专家组开发，作为高质量数字音
 
 广泛使用的MP3指的是不论MPEG哪个版本的layer3的编码，然而，有时候MP3也泛指了所有的MPEG算法。
 MPP3 的音频流具有固定可选的码率。根据不同的采样率和 layer 可选的 bitrate 不同，具体见下表。也允许对流中不同的部分使用不同的码率，称为“VBR”。
-![](http://p7tst3obo.bkt.clouddn.com/MPEG/bitrate.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![](http://blog.cyang.top/MPEG/bitrate.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 MP3编码压缩后的数据是由一系列固定大小的块组成的，这些块叫做帧。每一帧具有多少的PCM采样数据是固定的，见下表。解码时必须从帧头开始解，但可以只解一部分，可解的最小单元数见下表。
-![](http://p7tst3obo.bkt.clouddn.com/MPEG/sample.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![](http://blog.cyang.top/MPEG/sample.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 帧的格式见下图，帧头是32位的数据，用于同步一些基本的信息。例如采样率，通道数，比特率之类。16位的CRC校验值是可选的。注意，CRC校验的并不是整个帧的数据，仅仅是帧头数据的后16位和辅助信息的校验。
-![](http://p7tst3obo.bkt.clouddn.com/MPEG/frame.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![](http://blog.cyang.top/MPEG/frame.png?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 MPEG的音频文件没有主要的文件头。一个MPEG文件是由一系列的标准帧组成的。帧与帧之间不能有任何的垃圾数据。帧的大小可从帧头信息中获得，因此如果知道前一帧头位置可以很容易得到下一帧的帧头位置。为了支持更多的自定义格式，解码器必须连续读取几个帧头，以便计算出该音频一帧的长度。在使用自定义模式时，不可使用VBR模式，且不可以和固定大小的帧混合。
 

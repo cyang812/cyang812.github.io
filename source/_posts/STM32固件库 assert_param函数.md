@@ -4,11 +4,11 @@ tags:
 - STM32
 categories:
 - 硬件
-thumbnail: http://p7tst3obo.bkt.clouddn.com/assert_param.png
+thumbnail: http://blog.cyang.top/assert_param.png
 ---
 
 
-![](http://p7tst3obo.bkt.clouddn.com/assert_param.png)
+![](http://blog.cyang.top/assert_param.png)
 
 # 一、知识点
 -1、固件函数库通过检查库函书的输入来实现运行时间错误侦测。通过使用宏assert_param来实现运行时间检测。所有要求输入参数的函数都使用这个宏。它可以检查输入参数是否在允许的范围之内。

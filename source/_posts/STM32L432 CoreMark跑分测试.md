@@ -7,7 +7,7 @@ tags:
 - CoreMark
 categories:
 - 嵌入式
-thumbnail: http://p7tst3obo.bkt.clouddn.com/20180228125429924?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
+thumbnail: http://blog.cyang.top/20180228125429924?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
 ---
 
 
@@ -16,4 +16,4 @@ thumbnail: http://p7tst3obo.bkt.clouddn.com/20180228125429924?imageView2/0/inter
 测试得分：277
 官方给出的分数为：273.55
 如下图：
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20180228125429924?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20180228125429924?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)

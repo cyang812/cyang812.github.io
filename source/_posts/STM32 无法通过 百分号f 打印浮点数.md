@@ -6,24 +6,24 @@ tags:
 - STM32
 categories:
 - 嵌入式
-thumbnail: http://p7tst3obo.bkt.clouddn.com/20180302144541975?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
+thumbnail: http://blog.cyang.top/20180302144541975?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
 ---
 
 
 # 一、问题
 使用 IAR 开发 STM32，发现无法通过 printf 重定向到串口打印出浮点数。代码如下：
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20180302144541975?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20180302144541975?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 <!-- more -->
 
 输出结果如下：
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20180302144722631?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20180302144722631?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 可见，浮点数部分无法正常显示。
 
 # 二、解决方法
 这是由于 IAR 默认选择的 printf 库不支持浮点数的的输出。可在设置选项中修改。如下：默认使用 small，改为 auto 即可。
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20180302144931419?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20180302144931419?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 # 三、备注
 在不修改设置的情况下，尝试过如下两种代码解决。一种是通过 sprintf 将浮点数转换成字符串输出，另一种是分解整数和小数部分，分别输出。第一种方法也是不可行的，只有分解可以。

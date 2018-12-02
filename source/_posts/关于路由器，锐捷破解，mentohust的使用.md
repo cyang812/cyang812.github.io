@@ -7,7 +7,7 @@ tags:
 - linux
 categories:
 - 总结
-thumbnail: http://p7tst3obo.bkt.clouddn.com/20160820192331858?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
+thumbnail: http://blog.cyang.top/20160820192331858?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
 ---
 
 # 一、意图
@@ -25,13 +25,13 @@ thumbnail: http://p7tst3obo.bkt.clouddn.com/20160820192331858?imageView2/0/inter
 1、这款软件是开源的，可以使用RPM包安装，也可以直接获取源码后编译。这里选择使用RPM包安装的方式。
 2、安装过程很简单，值得说明的是，安装包是通过电脑连接路由器的WIFI后，使用WinSCP这款软件上传到路由器系统的。
 3、安装结束后，直接使用命令打开软件就好。但是，由于本学校的限制，需要将锐捷安装包内的8021x.exe，SuConfig.dat，W32N55.dll这三个文件上传到/etc/mentohust这个目录下。这个步骤并不是所有学校都需要的，视情况而定。
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20160820192331858?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20160820192331858?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 4、软件的具体选项可以查看网站，或者执行`mentohust --help` 来获取。类似于：
 ```
 mentohust -u认证账号 -p密码 -w -neth0（网卡） -iIP地址 -m255.255.248.0（掩码） -g网关 -s114.114.114.114（DNS） -a1 -d2 -b2
 ```
 关于每一个具体的选项说明见下图：
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20160820191946087?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20160820191946087?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 幸运的话，就可以通过锐捷的认证了。但是，一般来说，第一次不太可能会成功，因为上面的步骤，选项的参数肯定会出错。下面是我遇到的问题以及解决方案：
 ## 3.2 遇到的问题以及解决方案

@@ -4,7 +4,7 @@ tags:
 - python
 categories:
 - 嵌入式
-thumbnail: http://p7tst3obo.bkt.clouddn.com/20180518132336617?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
+thumbnail: http://blog.cyang.top/20180518132336617?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
 ---
 
 # fileToC
@@ -20,9 +20,9 @@ fileToC 是一款使用 python 编写的程序，可以将任意文件的二进�
 
 结果如下：test.any 文件的二进制数据
 
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20180518132336617?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20180518132336617?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20180518132349534?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20180518132349534?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 ## 分析
 这款程序的使用场景是当我们编程时，需要使用文件里面的部分或全部数据，而由于开发环境限制，无法通过文件的方式来读取，这在嵌入式系统中比较常见。那么，就可以通过将文件数据变成一个C文件，编译为常量，链接到程序中。

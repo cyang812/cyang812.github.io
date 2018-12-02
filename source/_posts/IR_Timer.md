@@ -5,11 +5,11 @@ tags:
 - 红外线
 categories:
 - STM32
-thumbnail: http://p7tst3obo.bkt.clouddn.com/20170808231029615?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
+thumbnail: http://blog.cyang.top/20170808231029615?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
 ---
 
 
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170808231029615?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20170808231029615?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 <!-- more -->
 
@@ -25,10 +25,10 @@ thumbnail: http://p7tst3obo.bkt.clouddn.com/20170808231029615?imageView2/0/inter
    ​
 
 - 红外数据的波形如下图：包括一个同步头和 32 帧数据。
-   ![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170808230617825?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+   ![这里写图片描述](http://blog.cyang.top/20170808230617825?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 - 下图可看出，同步头为 9ms 低电平加上 4.5ms 高电平，控制码为 8 个 0，控制反码为 8 个 1。
-    ![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170808231029615?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+    ![这里写图片描述](http://blog.cyang.top/20170808231029615?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 
 ## 2、定时器计数
@@ -36,7 +36,7 @@ thumbnail: http://p7tst3obo.bkt.clouddn.com/20170808231029615?imageView2/0/inter
 
 ## 3、实现方法
 - 利用定时器记录两个下降沿之间的时间，通过该时间判断是否是同步头信息、数据 1 或者数据 0。当检测到同步头，开始记录 32 个数据的时间值。
-  ![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170808225212279?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+  ![这里写图片描述](http://blog.cyang.top/20170808225212279?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 
 # 二、实现
@@ -262,7 +262,7 @@ thumbnail: http://p7tst3obo.bkt.clouddn.com/20170808231029615?imageView2/0/inter
 # 三、演示
 
 如下图为串口打印出接收的红外按键值信息：
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170808225232539?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20170808225232539?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 说明1：这只是实现红外接收的其中一种方法，网上还有一种比较常见的方法是利用下降沿触发，在中断中进行延迟，判断高电平持续时间以此来判断信号类别。个人感觉这不是一种很好的方法，因为在中断中进行延时会导致主函数得不到及时的处理。
 

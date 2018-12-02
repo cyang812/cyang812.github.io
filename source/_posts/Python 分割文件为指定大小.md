@@ -4,11 +4,11 @@ tags:
 - python
 categories:
 - 教程
-thumbnail: http://p7tst3obo.bkt.clouddn.com/Python%20split.png
+thumbnail: http://blog.cyang.top/Python%20split.png
 ---
 
 
-![](http://p7tst3obo.bkt.clouddn.com/Python%20split.png)
+![](http://blog.cyang.top/Python%20split.png)
 
 本文参考[python学习--大文件分割与合并](http://www.cnblogs.com/shenghl/p/3946656.html)
 # 一、说明
@@ -76,4 +76,4 @@ if __name__=='__main__':
 ```
 
 # 三、示例
-![](http://p7tst3obo.bkt.clouddn.com/python%20split%20demo.png)
+![](http://blog.cyang.top/python%20split%20demo.png)

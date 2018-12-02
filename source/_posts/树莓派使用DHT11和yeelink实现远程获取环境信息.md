@@ -5,10 +5,10 @@ tags:
 - DHT11
 categories:
 - 树莓派
-thumbnail: http://p7tst3obo.bkt.clouddn.com/DHT11-yeelink.png
+thumbnail: http://blog.cyang.top/DHT11-yeelink.png
 ---
 
-![DHT11](http://p7tst3obo.bkt.clouddn.com/DHT11-yeelink.png)
+![DHT11](http://blog.cyang.top/DHT11-yeelink.png)
 
 ## 原理：
 树莓派使用DHT11传感器获取环境温湿度信息，上传至yeelink服务器。

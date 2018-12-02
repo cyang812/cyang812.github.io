@@ -7,7 +7,7 @@ tags:
 - CoreMark
 categories:
 - 嵌入式
-thumbnail: http://p7tst3obo.bkt.clouddn.com/20180227195105586?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
+thumbnail: http://blog.cyang.top/20180227195105586?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
 ---
 
 
@@ -30,6 +30,6 @@ CoreMark 是一项测试处理器性能的基准测试。代码使用 C 语言�
 官方给出的测试结果为608。
 串口结果如下图：
 
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20180227195105586?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20180227195105586?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 主频 120Mhz 时，跑分为 411， 主频为 60Mhz 时，跑分为 205。

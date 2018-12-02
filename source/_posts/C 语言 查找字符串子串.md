@@ -5,11 +5,11 @@ tags:
 - C
 categories:
 - 编程
-thumbnail: http://p7tst3obo.bkt.clouddn.com/vc++%20%E6%9F%A5%E6%89%BE%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AD%90%E4%B8%B2.png
+thumbnail: http://blog.cyang.top/vc++%20%E6%9F%A5%E6%89%BE%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AD%90%E4%B8%B2.png
 ---
 
 
-![](http://p7tst3obo.bkt.clouddn.com/vc++%20%E6%9F%A5%E6%89%BE%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AD%90%E4%B8%B2.png)
+![](http://blog.cyang.top/vc++%20%E6%9F%A5%E6%89%BE%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AD%90%E4%B8%B2.png)
 
 <!-- more -->
 

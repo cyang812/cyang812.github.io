@@ -5,13 +5,13 @@ tags:
 - OSMC
 categories:
 - 树莓派
-thumbnail: http://p7tst3obo.bkt.clouddn.com/20170207125146892?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
+thumbnail: http://blog.cyang.top/20170207125146892?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10
 ---
 
 
 
 
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170207125146892?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20170207125146892?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 OSMC是一款基于 Linux 免费开源的媒体播放系统。目前支持树莓派1、2、3、zero,vero,Apple TV这几款硬件平台。
 
 
@@ -30,27 +30,27 @@ OSMC是一款基于 Linux 免费开源的媒体播放系统。目前支持树莓
 
 - 方法一 下载安装镜像烧写
 1、下载 [OSMC](https://osmc.tv/download/) 系统
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170207125232290?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20170207125232290?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
  2、使用 Etcher 烧录系统
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170207125246837?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20170207125246837?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 
 - 方法二 使用树莓派官方推荐的NOOBS安装
  1、下载NOOBS,推荐下载左边完整版，这样在安装时不需要连接网络下载系统。
- ![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170207125427800?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+ ![这里写图片描述](http://blog.cyang.top/20170207125427800?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
  2、解压后将全部文件放入内存卡根目录
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170207125552972?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20170207125552972?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 - 方法三 使用OSMC官方安装器安装
 1、下载OSMC官方安装器，根据你所使用的操作系统选择下载。
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170207125657317?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20170207125657317?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 2、根据提示进行操作
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170207125737078?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170207125745207?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170207125751989?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20170207125737078?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)![这里写图片描述](http://blog.cyang.top/20170207125745207?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)![这里写图片描述](http://blog.cyang.top/20170207125751989?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 - 3、插入内存卡，开机初始化。第一次启动会配置时间地区语言等，切勿在初始化设置时更改语言为中文，将会出现中文字用框框显示的错误。
 之后开机可以到设置中切换中文，先`system–>settings–>apparence–>skin，把 fonts 改成 Arial based；`之后再`到 skin 下面的 international，把 language 改成 Chinese；`
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170207131628247?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170207131642430?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170207131742603?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20170207131628247?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)![这里写图片描述](http://blog.cyang.top/20170207131642430?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)![这里写图片描述](http://blog.cyang.top/20170207131742603?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 
 - 4、安装插件
@@ -72,7 +72,7 @@ OSMC是一款基于 Linux 免费开源的媒体播放系统。目前支持树莓
 # 三、使用体验
 - 1、安装插件后可以完美观看国内主流的视频网站上的内容，使用PPTV插件还可以看电视内容，无广告，但是出错的机率比较大。
 - 2、音频的输出可以使用耳机，也可以使用HDMI，这可以在系统中设置，但可能是我硬件的问题，使用耳机输出在不播放视频时底噪非常大。由于没有带音频输出的HDMI转接线，所以不知道HDMI输出音频时的效果。
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170207131822728?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170207131833932?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20170207131822728?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)![这里写图片描述](http://blog.cyang.top/20170207131833932?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 
 

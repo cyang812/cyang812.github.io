@@ -5,11 +5,11 @@ tags:
 - FAT32
 categories:
 - 硬件
-thumbnail: http://p7tst3obo.bkt.clouddn.com/fat32.jpg
+thumbnail: http://blog.cyang.top/fat32.jpg
 ---
 
 
-![](http://p7tst3obo.bkt.clouddn.com/fat32.jpg)
+![](http://blog.cyang.top/fat32.jpg)
 
 >文件系统就是对数据进行存储和管理的方式，是为了长久的存储和访问数据而为用户提供的一种基于文件和目录的存储机制。
 

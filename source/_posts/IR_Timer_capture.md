@@ -7,11 +7,11 @@ tags:
 - 输入捕获
 categories:
 - STM32
-thumbnail: http://p7tst3obo.bkt.clouddn.com/IR_Tim_Capture.png
+thumbnail: http://blog.cyang.top/IR_Tim_Capture.png
 ---
 
 
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/IR_Tim_Capture.png)
+![这里写图片描述](http://blog.cyang.top/IR_Tim_Capture.png)
 
 > 之前已经写过了一个使用定时器普通计时功能来识别红外遥控数据的[文章](http://cyang.tech/2017/08/09/IR_Timer/)。本次是使用定时器输入捕获来实现，这种方法比起定时器普通计数来说要更加复杂一些，不过效果会更好。
 
@@ -335,7 +335,7 @@ void main()
 # 三、演示
 
 如下图为串口打印出接收的红外按键值信息：
-![这里写图片描述](http://p7tst3obo.bkt.clouddn.com/20170911164650633?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
+![这里写图片描述](http://blog.cyang.top/20170911164650633?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10)
 
 说明1：这篇文章所使用的方法主要参考自[这篇文章](http://blog.csdn.net/qq_16255321/article/details/43602535)，代码仅做了部分修改，并在源代码基础上添加了部分代码，用于实现连续键。
 

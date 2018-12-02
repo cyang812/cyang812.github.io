@@ -5,11 +5,11 @@ tags:
 - FreeRTOS
 categories:
 - 硬件
-thumbnail: http://p7tst3obo.bkt.clouddn.com/FreeRTOS.bmp
+thumbnail: http://blog.cyang.top/FreeRTOS.bmp
 ---
 
 
-![](http://p7tst3obo.bkt.clouddn.com/FreeRTOS.bmp)
+![](http://blog.cyang.top/FreeRTOS.bmp)
 
 # 一、知识点
 
