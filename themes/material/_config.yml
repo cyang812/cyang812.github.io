@@ -76,8 +76,6 @@ img:
     logo: "/img/logo.gif"
     avatar: "/img/avatar.jpg"
     daily_pic: "/img/daily_pic.png"
-    # daily_pic: "http://p7tst3obo.bkt.clouddn.com/config/note.jpg?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10"
-    #sidebar_header: "/img/sidebar_header.png"
     sidebar_header: "/img/daily_pic.png"
     random_thumbnail: "/img/random/material-"
     footer_image:
