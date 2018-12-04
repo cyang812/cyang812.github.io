@@ -1,0 +1,807 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+
+	<!DOCTYPE html>
+	<html>
+		
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<title>利用腾讯云学生套餐免费搭建WP博客</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="apple-mobile-web-app-title" content="Amaze UI">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="cyang">
+    <meta name="keywords" content="cyang">
+    <meta name="description" content="just do IT">
+   	<!-- css -->
+	<link rel="stylesheet" href="/css/style.css">
+
+	<!-- favicon -->
+	<link href="/img/favicon.ico" rel="Shortcut Icon" type="image/ico">
+	
+	<!-- font-awesome -->
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+	<body>	
+		<!--Preloader-->
+<div id="preloader">
+	<div id="status">
+		<img alt="PRELOADER" src="/img/logo.png">
+	</div>
+</div>
+<!--Preloader end-->
+
+<!-- header -->
+
+	<header id="header-bg-1" style="background-image: url( https://source.unsplash.com/collection/954550/1920x1080 );">	
+
+	
+		<div id="cd-logo"><a href="/">Welcome</a></div>		
+	
+	
+	<!-- motto or description -->
+		
+ 		<p class="motto">不念过去 不负现在 不畏将来</p>
+	
+	
+	<!-- current page name or title -->
+	
+		
+		
+			
+			<p class="page-name">当前文章&nbsp;:&nbsp;《利用腾讯云学生套餐免费搭建WP博客》</p>
+			
+		
+	
+	
+	<!-- others: such as change-bg, time... -->
+	<p class="page-name-other">
+		12/4/2018 
+		<style type="text/css">
+	header:after {
+		content: '';
+		position: relative;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background: #222222;
+		opacity: .5;
+		z-index: -1;
+	}
+	
+	.change-header-bg{
+		font-style: normal;
+	}
+	.change-header-bg i{
+		text-align: center;
+		cursor: pointer;
+		pointer-events: bounding-box;
+	}
+	@media(max-width:512px) {
+		.change-header-bg {
+			display: none;
+			visibility: hidden;
+		}
+	}
+	
+</style>
+
+<script type="text/javascript">
+	function changeHeaderBg(){
+		var random_bg = Math.floor(Math.random() * 109 + 1);
+		var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+		$("#header-bg-2").css("background-image", bg);
+	}
+</script>
+
+<span class="change-header-bg">
+	——&nbsp;<i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>	
+</span>
+	</p>		
+</header>
+
+<!-- nav -->
+<div id="cd-nav">
+	<a href="#0" title="menu" class="cd-nav-trigger"><span></span></a>
+
+	<nav id="cd-main-nav">
+		<ul>
+			
+      		<li class="fa fa-/">
+           		<a href="/" title="主页">主页</a>	
+      		</li>
+    		
+      		<li class="fa fa-/archives">
+           		<a href="/archives" title="归档">归档</a>	
+      		</li>
+    		
+      		<li class="fa fa-/categories">
+           		<a href="/categories" title="分类">分类</a>	
+      		</li>
+    		
+      		<li class="fa fa-/tags">
+           		<a href="/tags" title="标签">标签</a>	
+      		</li>
+    		
+    		
+        	
+            	<li class="fa fa-/search"><a href="javascript:;" class="popup-trigger" title="Search">搜索</a></li>
+        	
+		</ul>
+	</nav>
+</div>
+
+		<!--main-->
+		<main> 
+		<div class="page-container">
+		<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed blog-content">
+	<div class="am-u-md-8 am-u-sm-12">
+
+		<article class="am-article blog-article-p">
+
+			<div class="am-article-hd">
+				
+
+
+				<h1 class="am-article-title blog-text-center">
+					
+					
+	
+		<a href="/2016/07/08/利用腾讯云学生套餐免费搭建wordpress博客/" itemprop="url">		
+			利用腾讯云学生套餐免费搭建WP博客		
+		</a>
+	
+
+				</h1>
+
+				<p class="am-article-meta blog-text-center">
+					<span>
+						<i class="fa fa-clock-o"></i> 
+						<a href="/2016/07/08/利用腾讯云学生套餐免费搭建wordpress博客/" itemprop="url">
+	<time datetime="2016-07-08T02:08:23.000Z" itemprop="datePublished">
+  		2016-07-08
+  </time>
+</a>    
+&nbsp;
+					</span>
+					
+					<span>						
+						
+							<i class="fa fa-tags"></i>
+							
+								<a href="#腾讯云" title="腾讯云" rel="2">腾讯云</a>&nbsp;
+							
+								<a href="#服务器" title="服务器" rel="2">服务器</a>&nbsp;
+							
+								<a href="#Linux" title="Linux" rel="2">Linux</a>&nbsp;
+							
+								<a href="#Wordpress" title="Wordpress" rel="1">Wordpress</a>&nbsp;
+							
+								<a href="#博客" title="博客" rel="1">博客</a>&nbsp;
+													 											
+						
+					</span>
+				</p>
+			</div>
+
+			<div class="am-article-bd">
+				<div class="content" id="post-content">
+					
+						<p>本文是一片个人博客建站教程，利用腾讯云学生套餐搭建免费的WP博客。</p>
+<h1 id="一、前期准备"><a href="#一、前期准备" class="headerlink" title="一、前期准备"></a>一、前期准备</h1><h2 id="1、申请学生套餐中免费的腾讯云服务器。首先需要通过学信网验证学生身份，之后腾讯每月会赠送一个满65元减64元的代金券，一直赠送到大学毕业。云服务器建议选择安装cent-OS-6-x版本。安装时候需要记住系统镜像的密码，后续通过SSH连接服务器时需要填写这个密码。"><a href="#1、申请学生套餐中免费的腾讯云服务器。首先需要通过学信网验证学生身份，之后腾讯每月会赠送一个满65元减64元的代金券，一直赠送到大学毕业。云服务器建议选择安装cent-OS-6-x版本。安装时候需要记住系统镜像的密码，后续通过SSH连接服务器时需要填写这个密码。" class="headerlink" title="1、申请学生套餐中免费的腾讯云服务器。首先需要通过学信网验证学生身份，之后腾讯每月会赠送一个满65元减64元的代金券，一直赠送到大学毕业。云服务器建议选择安装cent OS 6.x版本。安装时候需要记住系统镜像的密码，后续通过SSH连接服务器时需要填写这个密码。"></a>1、申请<a href="http://www.qcloud.com/event/qcloudSchool" target="_blank" rel="noopener">学生套餐</a>中免费的腾讯云服务器。首先需要通过学信网验证学生身份，之后腾讯每月会赠送一个满65元减64元的代金券，一直赠送到大学毕业。云服务器建议选择安装cent OS 6.x版本。安装时候需要记住系统镜像的密码，后续通过SSH连接服务器时需要填写这个密码。</h2><p><img src="http://blog.cyang.top/20160708191226398?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+<a id="more"></a>
+<h2 id="2、购买域名。这个可以在万网购买，很多后缀都只要6元一年。"><a href="#2、购买域名。这个可以在万网购买，很多后缀都只要6元一年。" class="headerlink" title="2、购买域名。这个可以在万网购买，很多后缀都只要6元一年。"></a>2、购买域名。这个可以在万网购买，很多后缀都只要6元一年。</h2><p><img src="http://blog.cyang.top/20160708191334898?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+<h1 id="二、安装步骤"><a href="#二、安装步骤" class="headerlink" title="二、安装步骤"></a>二、安装步骤</h1><hr>
+<p>——-面板安装———–</p>
+<h2 id="1、通过SSH连接云服务器"><a href="#1、通过SSH连接云服务器" class="headerlink" title="1、通过SSH连接云服务器"></a><strong>1、通过SSH连接云服务器</strong></h2><p>1.1建议使用X shell这个软件。在主机框内填写云服务器的公网IP地址。这个地址从腾讯云服务器管理后天得到。<br><img src="http://blog.cyang.top/20160708191504284?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"><br>1.2 填写后点击连接，需要填写服务器的用户名和密码。如果是cent OS ,默认用户名为root，密码是你安装镜像是填写的密码。如果忘记，需要去腾讯云服务器后台重新设置，重新设置后需要重启服务器才能生效。<br><img src="http://blog.cyang.top/20160708192152214?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"><br><strong>补充：</strong> 如果使用的是ubuntu系统，则默认不提供管理员权限。需要通过用户名ubuntu登陆，登陆后通过输入<code>sudo passwd root</code>获取权限，之后输入<code>sudo -s -H</code>提升用户权限至管理员。</p>
+<h2 id="2、安装AMH面板。"><a href="#2、安装AMH面板。" class="headerlink" title="2、安装AMH面板。"></a><strong>2、安装AMH面板。</strong></h2><p>2.1 安装面板需要获取管理员权限。具体安装步骤查看<a href="https://amh.sh/install.htm" target="_blank" rel="noopener">官网</a>。<br><img src="http://blog.cyang.top/20160708192914577?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+<p> 2.2  amh4.2版本安装过程比较慢，大概需要20分钟。如果是5.2版本就很快，不过需要支付每月6元的费用。这里选择4.2版本就可以。<br> <img src="http://blog.cyang.top/20160708193102156?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+<h2 id="3、安装面板成功后，就可以登陆面板，之后通过面板安装博客程序。"><a href="#3、安装面板成功后，就可以登陆面板，之后通过面板安装博客程序。" class="headerlink" title="3、安装面板成功后，就可以登陆面板，之后通过面板安装博客程序。"></a><strong>3、安装面板成功后，就可以登陆面板，之后通过面板安装博客程序。</strong></h2><p>面板安装完成后，就可以通过访问 <code>主机ip:8888</code>登陆到amh面板<br><img src="http://blog.cyang.top/20160708193313235?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+<hr>
+<p>——-博客程序安装———</p>
+<h2 id="4、新建一个虚拟主机"><a href="#4、新建一个虚拟主机" class="headerlink" title="4、新建一个虚拟主机"></a><strong>4、新建一个虚拟主机</strong></h2><p>点击“虚拟主机”选项卡，并按照下图填入你想要绑定的域名（这里以cyang.top 这个域名为例，不要忘了将域名的A记录解析到你VPS的IP上），然后点击保存。<br><img src="http://blog.cyang.top/20160708193501750?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+<p>域名解析直接使用万网提供的解析就好。<br><img src="http://blog.cyang.top/20160708200217435?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+<h2 id="5、安装AMFTP–在线文件管理工具"><a href="#5、安装AMFTP–在线文件管理工具" class="headerlink" title="5、安装AMFTP–在线文件管理工具"></a><strong>5、安装AMFTP–在线文件管理工具</strong></h2><p>点击“扩展模块”选项卡，找到AMFTP-2.0并点击“安装”。<br><img src="http://blog.cyang.top/20160708193915193?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+<h2 id="6-添加FTP账户"><a href="#6-添加FTP账户" class="headerlink" title="6. 添加FTP账户"></a><strong>6. 添加FTP账户</strong></h2><p>点击“FTP”选项卡，如下图输入你想要设置的FTP的账号密码，并将主机根目录选择为我们刚才新建的虚拟主机的根目录。然后点击“保存”即可完成新建。<br><img src="http://blog.cyang.top/20160708194023675?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+<h2 id="7-上传Wordpress程序"><a href="#7-上传Wordpress程序" class="headerlink" title="7. 上传Wordpress程序"></a><strong>7. 上传Wordpress程序</strong></h2><p>点击“FTP”选项卡，在我们刚才新建的FTP账户的最后面点击“管理”并输入上一步中我们设置的FTP的账号密码，登录之后即可进入在线文件管理系统。<br><img src="http://blog.cyang.top/20160708200422215?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+<p>7.1 选择并删除默认自带的 index.html 文件</p>
+<p>7.2 点击“上传”按钮将Wordpress程序的zip压缩包上传到根目录中。<br>WordPress程序请从这里下载<a href="https://cn.wordpress.org/wordpress-4.2.2-zh_CN.zip" target="_blank" rel="noopener">https://cn.wordpress.org/wordpress-4.2.2-zh_CN.zip</a><br><img src="http://blog.cyang.top/20160708194303557?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+<p>7.3 上传完成之后，点击“刷新”即可看到我们刚刚上传的压缩包，选择它，并且点击“智能解压”。</p>
+<p>7.4 点击进入刚刚解压的wordpress目录，点击复选框，全选目录下的所有文件，移动到目录中输入“/”，然后点击确定。这样就把所有文件都移动到根目录中了。<br>全选应该移动的项目应该为19项，这里和截图不一样。<br><img src="http://blog.cyang.top/20160708194455294?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+<h2 id="8-新建Wordpress数据库"><a href="#8-新建Wordpress数据库" class="headerlink" title="8. 新建Wordpress数据库"></a><strong>8. 新建Wordpress数据库</strong></h2><p>点击选项卡“MYSQL”–“快速建库”，在弹出的页面“数据库名称”中输入你想要建立的数据库名字，AMH会自动生成“数据库用户名”以及“数据库用户密码”，点击“创建”，将这三组数据记下来，一会要用到。<br><img src="http://blog.cyang.top/20160708194655319?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+<p><img src="http://blog.cyang.top/20160708194801112?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+<h2 id="9-配置Wordpress"><a href="#9-配置Wordpress" class="headerlink" title="9. 配置Wordpress"></a><strong>9. 配置Wordpress</strong></h2><p>打开你的域名，本例子中为 <a href="http://www.cyang.top" target="_blank" rel="noopener">http://www.cyang.top</a></p>
+<p>点击“现在就开始”，输入刚才的三组数据（数据库名、数据库用户名、数据库密码）然后点击“进行安装”。</p>
+<p>9.1 输入站点相关信息，然后点击“确定”就完成安装啦。<br><img src="http://blog.cyang.top/20160708195146446?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+<p>原文链接 <a href="http://blog.csdn.net/u011303443/article/details/51863282" target="_blank" rel="noopener">csdn博客</a></p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p>1、<a href="http://yun.baidu.com/share/home?uk=288436188&amp;third=1&amp;view=share#category/type=0" target="_blank" rel="noopener">安装面板的视频教程</a></p>
+<p>2、<em><a href="http://www.izcv.com/379.html" target="_blank" rel="noopener">安装博客文件的教程</a></em></p>
+
+					
+				</div>
+			</div>
+		</article>
+
+		<ul class="am-pagination">
+    
+    	<li class="am-pagination-prev">
+   		<a class="pull-left" href="/2016/07/12/STM32 流水灯项目/" title="STM32 流水灯实验">
+      		&laquo; 上一篇
+		</a>
+		</li>
+	
+	
+		<li class="am-pagination-next">
+		<a class="pull-right" href="/2016/06/16/51单片机学习总结（一）/" title="51单片机学习总结（一）">
+			下一篇 &raquo;
+		</a>
+		</li>
+	 
+ </ul>
+        
+
+		<div class="theme-annie-comment-button-container">
+	<button id="annie-comment-button" class="theme-annie-comment-button" onclick="Annie_Comment()">
+		加载评论
+		<!--加载评论-->
+	</button>
+</div>
+
+<div id="annie-comment-container" class="theme-annie-comment-main-container">
+
+	
+		
+			<!-- comment demo -->
+			<style>
+	.clear-left {
+		padding-left: 0;
+	}
+	
+	.clear-right {
+		padding-right: 0;
+	}
+</style>
+<form class="am-form am-g">
+	<fieldset>
+		<div class="am-form-group am-u-sm-4 clear-left">
+			<input type="text" class="" placeholder="name">
+		</div>
+		<div class="am-form-group am-u-sm-4">
+			<input type="email" class="" placeholder="email">
+		</div>
+		<div class="am-form-group am-u-sm-4 clear-right">
+			<input type="text" class="" placeholder="blog">
+		</div>
+
+		<div class="am-form-group">
+			<textarea class="" rows="5" placeholder="just go go"></textarea>
+		</div>
+
+		<p><button type="submit" class="am-btn am-btn-default">发表评论</button></p>
+	</fieldset>
+</form>
+		
+	
+
+</div>
+
+<script type="text/javascript">
+	/* Show Comment */
+	var Annie_Comment = function() {
+		function Show_Hidden(obj) {
+			obj.style.display = 'block';
+		}
+		
+		//var obutton = $('#annie-comment-button');
+		//var obutton = $('#annie-comment-container');
+		var obutton = document.getElementById("annie-comment-button" || "0");
+		var odiv = document.getElementById("annie-comment-container");
+		if( 'obutton' ) {
+			obutton.onclick = function() {
+				Show_Hidden(odiv);
+				$("#annie-comment-button").css("display", 'none');
+				return false;
+			}
+		}
+	};
+
+	(function Annie_Init() {
+		Annie_Comment();
+	})();
+</script>
+		
+		<!--
+	时间：2018-09-24
+	描述：The TOC module refers to 'https://github.com/codefine/hexo-theme-mellow', include toc.ejs、toc.js、toc.css. All rights reserved by codefine. 
+-->
+
+	
+		<aside class="post-widget">
+			<nav class="post-toc-wrap" id="post-toc">
+				
+					<strong>文章目录</strong>
+				
+				
+				<!--toc(post.content)-->
+				<ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、前期准备"><span class="post-toc-text">一、前期准备</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、申请学生套餐中免费的腾讯云服务器。首先需要通过学信网验证学生身份，之后腾讯每月会赠送一个满65元减64元的代金券，一直赠送到大学毕业。云服务器建议选择安装cent-OS-6-x版本。安装时候需要记住系统镜像的密码，后续通过SSH连接服务器时需要填写这个密码。"><span class="post-toc-text">1、申请学生套餐中免费的腾讯云服务器。首先需要通过学信网验证学生身份，之后腾讯每月会赠送一个满65元减64元的代金券，一直赠送到大学毕业。云服务器建议选择安装cent OS 6.x版本。安装时候需要记住系统镜像的密码，后续通过SSH连接服务器时需要填写这个密码。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、购买域名。这个可以在万网购买，很多后缀都只要6元一年。"><span class="post-toc-text">2、购买域名。这个可以在万网购买，很多后缀都只要6元一年。</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、安装步骤"><span class="post-toc-text">二、安装步骤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、通过SSH连接云服务器"><span class="post-toc-text">1、通过SSH连接云服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、安装AMH面板。"><span class="post-toc-text">2、安装AMH面板。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、安装面板成功后，就可以登陆面板，之后通过面板安装博客程序。"><span class="post-toc-text">3、安装面板成功后，就可以登陆面板，之后通过面板安装博客程序。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、新建一个虚拟主机"><span class="post-toc-text">4、新建一个虚拟主机</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5、安装AMFTP–在线文件管理工具"><span class="post-toc-text">5、安装AMFTP–在线文件管理工具</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-添加FTP账户"><span class="post-toc-text">6. 添加FTP账户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-上传Wordpress程序"><span class="post-toc-text">7. 上传Wordpress程序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-新建Wordpress数据库"><span class="post-toc-text">8. 新建Wordpress数据库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-配置Wordpress"><span class="post-toc-text">9. 配置Wordpress</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考链接"><span class="post-toc-text">参考链接</span></a></li></ol>
+			</nav>
+			<div class="post-toc-bar"><div>
+		</div></div></aside>
+	
+
+	</div>
+</div>
+		</div>
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="blog-text-center">
+		<div class="theme-annie-social">
+				
+				
+					<a href="https://github.com/cyang812" title="Github" target="_blank"><i class="fa fa-github"></i>&nbsp;</a>
+					
+				
+					<a href="https://weibo.com/cyang812" title="Weibo" target="_blank"><i class="fa fa-weibo"></i>&nbsp;</a>
+				
+					
+				
+					<a href="/" title="QQ" target="_blank"><i class="fa fa-qq"></i>&nbsp;</a>
+					
+				
+					<a href="https://twitter.com/cyang812" title="Twitter" target="_blank"><i class="fa fa-twitter"></i>&nbsp;</a>
+						
+				
+		</div>
+	</div>
+
+	<div class="blog-text-center">
+		<div class="theme-annie-copyright">
+			
+				&copy; 2016 - 2018, content by cyang. All Rights Reserved.			       	
+			
+		</div>
+	</div>
+
+	<div class="blog-text-center">
+		<div class="theme-annie-copyright">
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.		
+		</div>
+	</div>
+</footer>
+		<!-- <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script> -->
+
+<script>
+	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
+</script>
+
+<style>
+	.motto {
+		color: #000000;
+		font-size: 20px;
+		margin: 100px 25% 0;
+		width: 50%;
+		line-height: 1.4;
+		font-family:"KaiTi", "STXingkai", "Source Sans Pro", "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
+		text-align: center;
+	}
+	@media(max-width: 890px) {
+		.motto {	
+			margin: 100px 10% 0;
+			width: 80%;
+		}
+	}
+	@media(max-width: 890px) {
+		.motto {
+			margin: 100px 5% 0;
+			width: 90%;
+		}
+	}
+</style>
+
+
+	<script src="/js/motto.js"></script>
+	<script type="text/javascript">
+		$(".motto").html(getMingYanContent());
+	</script>	
+
+
+
+	<div class="popup search-popup local-search-popup">
+    <span class="popup-btn-close">
+      ESC
+    </span>
+    <div class="container">
+      <div class="col-md-8 col-md-offset-2">
+
+        <div class="local-search-header clearfix">
+            <span class="search-icon"></span>
+            <div class="local-search-input-wrapper">
+              <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+            </div>
+        </div>
+
+        <div id="local-search-result"></div>
+
+      </div>
+    </div>
+</div>
+
+<script src="/js/ziploader.js"></script>
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // get search zip version
+    $.get('/searchVersion.txt?t=' + (+new Date()), function(res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson () {
+      initLoad(['/search.zip'], {
+        loadOptions: {
+          success: function(obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function(e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions:{
+          'json':'application/json'
+        }
+      })
+    }
+
+    // search function;
+    var searchFunc = function(search_id, content_id) {
+      'use strict';
+
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function() {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function(data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title ? data.title.trim() : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content ? data.content.trim().replace(/<[^>]+>/g,"") : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function(keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0, position = [], index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+
+            // show search results
+
+            if (isMatch) {
+              // sort index by position of keyword
+
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+
+              // merge hits into slices
+
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+
+                  // move to next position of hit
+
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {
+                  hits: hits,
+                  start: start,
+                  end: end,
+                  searchTextCount: searchTextCountInSlice
+                };
+              }
+
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if(start < 0){
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if(end > content.length){
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+
+              // sort slices in content by search text's count and hits' count
+
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+
+              // select top N slices in content
+
+              var upperBound = parseInt('2');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+
+              // highlight title and content
+
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+
+              var resultItem = '';
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+              } else {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+              }
+
+              slicesOfContent.forEach(function (slice) {
+                resultItem +=  "<p class=\"search-result\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+
+              resultItem += "</li>";
+              resultItems.push({
+                item: resultItem,
+                searchTextCount: searchTextCount,
+                hitCount: hitCount,
+                id: resultItems.length
+              });
+            }
+          })
+        };
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /> no result </div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<ul class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</ul>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+
+      // remove loading animation
+      $('body').css('overflow', '');
+
+      proceedsearch();
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        $('.sb-close').click();
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+	<script type="text/javascript" src="/js/love.js"></script>
+
+
+
+	<script type="text/javascript" src="/js/toc.js"></script>
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript">
+	//generate a random img that pre_name 'from 0 to 110'
+	var random_bg = Math.floor(Math.random() * 109 + 1);
+
+	//var bg = 'url(/img/random/' + random_bg + '.jpg)';		
+	var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+
+	$("#header-bg-2").css("background-image", bg);
+</script>
+		
+		<!--back to top-->
+        <style type="text/css">
+	#totop {
+		background: white;
+		border-radius: 50%;
+		position: fixed;
+		right: 5.4%;
+		bottom: 80px;
+		cursor: pointer;
+	}
+	
+	#totop a {
+		color: #474747;
+		background-color: transparent;
+		padding: 10px;
+		text-decoration: none;
+	}
+	
+	@media(max-width:512px) {
+		#totop {
+			display: none;
+			visibility: hidden;
+		}
+	}
+</style>
+
+
+	<div id="totop">
+  		<a href="javascript:;" class="fa fa-arrow-up"></a>
+	</div>
+
+	</body>
+	</html>
+

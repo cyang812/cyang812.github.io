@@ -1,0 +1,1011 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+
+	<!DOCTYPE html>
+	<html>
+		
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<title>掌控堆栈确保系统稳定 IAR技术手册翻译</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="apple-mobile-web-app-title" content="Amaze UI">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="cyang">
+    <meta name="keywords" content="cyang">
+    <meta name="description" content="just do IT">
+   	<!-- css -->
+	<link rel="stylesheet" href="/css/style.css">
+
+	<!-- favicon -->
+	<link href="/img/favicon.ico" rel="Shortcut Icon" type="image/ico">
+	
+	<!-- font-awesome -->
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+	<body>	
+		<!--Preloader-->
+<div id="preloader">
+	<div id="status">
+		<img alt="PRELOADER" src="/img/logo.png">
+	</div>
+</div>
+<!--Preloader end-->
+
+<!-- header -->
+
+	<header id="header-bg-1" style="background-image: url( https://source.unsplash.com/collection/954550/1920x1080 );">	
+
+	
+		<div id="cd-logo"><a href="/">Welcome</a></div>		
+	
+	
+	<!-- motto or description -->
+		
+ 		<p class="motto">不念过去 不负现在 不畏将来</p>
+	
+	
+	<!-- current page name or title -->
+	
+		
+		
+			
+			<p class="page-name">当前文章&nbsp;:&nbsp;《掌控堆栈确保系统稳定 IAR技术手册翻译》</p>
+			
+		
+	
+	
+	<!-- others: such as change-bg, time... -->
+	<p class="page-name-other">
+		12/4/2018 
+		<style type="text/css">
+	header:after {
+		content: '';
+		position: relative;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background: #222222;
+		opacity: .5;
+		z-index: -1;
+	}
+	
+	.change-header-bg{
+		font-style: normal;
+	}
+	.change-header-bg i{
+		text-align: center;
+		cursor: pointer;
+		pointer-events: bounding-box;
+	}
+	@media(max-width:512px) {
+		.change-header-bg {
+			display: none;
+			visibility: hidden;
+		}
+	}
+	
+</style>
+
+<script type="text/javascript">
+	function changeHeaderBg(){
+		var random_bg = Math.floor(Math.random() * 109 + 1);
+		var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+		$("#header-bg-2").css("background-image", bg);
+	}
+</script>
+
+<span class="change-header-bg">
+	——&nbsp;<i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>	
+</span>
+	</p>		
+</header>
+
+<!-- nav -->
+<div id="cd-nav">
+	<a href="#0" title="menu" class="cd-nav-trigger"><span></span></a>
+
+	<nav id="cd-main-nav">
+		<ul>
+			
+      		<li class="fa fa-/">
+           		<a href="/" title="主页">主页</a>	
+      		</li>
+    		
+      		<li class="fa fa-/archives">
+           		<a href="/archives" title="归档">归档</a>	
+      		</li>
+    		
+      		<li class="fa fa-/categories">
+           		<a href="/categories" title="分类">分类</a>	
+      		</li>
+    		
+      		<li class="fa fa-/tags">
+           		<a href="/tags" title="标签">标签</a>	
+      		</li>
+    		
+    		
+        	
+            	<li class="fa fa-/search"><a href="javascript:;" class="popup-trigger" title="Search">搜索</a></li>
+        	
+		</ul>
+	</nav>
+</div>
+
+		<!--main-->
+		<main> 
+		<div class="page-container">
+		<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed blog-content">
+	<div class="am-u-md-8 am-u-sm-12">
+
+		<article class="am-article blog-article-p">
+
+			<div class="am-article-hd">
+				
+
+
+				<h1 class="am-article-title blog-text-center">
+					
+					
+	
+		<a href="/2018/01/06/掌控堆栈以提高系统稳定/" itemprop="url">		
+			掌控堆栈确保系统稳定 IAR技术手册翻译		
+		</a>
+	
+
+				</h1>
+
+				<p class="am-article-meta blog-text-center">
+					<span>
+						<i class="fa fa-clock-o"></i> 
+						<a href="/2018/01/06/掌控堆栈以提高系统稳定/" itemprop="url">
+	<time datetime="2018-01-06T10:00:23.000Z" itemprop="datePublished">
+  		2018-01-06
+  </time>
+</a>    
+&nbsp;
+					</span>
+					
+					<span>						
+						
+							<i class="fa fa-tags"></i>
+							
+								<a href="#编程" title="编程" rel="52">编程</a>&nbsp;
+							
+								<a href="#STM32" title="STM32" rel="42">STM32</a>&nbsp;
+							
+								<a href="#IAR" title="IAR" rel="10">IAR</a>&nbsp;
+							
+								<a href="#翻译" title="翻译" rel="1">翻译</a>&nbsp;
+													 											
+						
+					</span>
+				</p>
+			</div>
+
+			<div class="am-article-bd">
+				<div class="content" id="post-content">
+					
+						<p>翻译自 <a href="https://www.iar.com/kr/support/resources/articles/mastering-stack-and-heap-for-system-reliability/" target="_blank" rel="noopener">IAR 技术手册</a></p>
+<p><strong>堆和栈在嵌入式系统中是非常基础的概念。正确设置堆和栈的大小对于系统的稳定可靠非常重要。不正确设置时，系统可能会以某种非常奇怪的方式崩溃而造成灾难性的后果。</strong></p>
+<p>堆和栈的大小必须被程序员设置。通常情况下计算栈使用量都是非常困难的，但是在小型嵌入式系统中却比较容易，并且理解栈的使用也可以解决一些很难发现的运行时错误。另一方面，给栈分配过多的空间也意味着对内存资源的浪费。对于大多数嵌入式项目来说，最坏情况下栈的最大使用量是一个非常重要的信息，因为这是一种非常简单的估计应用程序所需栈大小的方法。堆的溢出通常不会导致严重的错误，但是这并不能带来什么安慰，因为很少有应用程序可以在溢出的情况下恢复。</p>
+<a id="more"></a>
+<h1 id="一、一份简短的堆和栈介绍"><a href="#一、一份简短的堆和栈介绍" class="headerlink" title="一、一份简短的堆和栈介绍"></a>一、一份简短的堆和栈介绍</h1><h2 id="1-1-概要"><a href="#1-1-概要" class="headerlink" title="1.1 概要"></a>1.1 概要</h2><p>这篇文章主要介绍了如何合理地设计堆和栈，并且怎样在安全的情况下尽可能的减少堆和栈的大小。</p>
+<p>桌面系统和嵌入式系统在堆和栈的设计上有一些相同的错误和注意事项，但在一些方面却完全不同。一个两者之间不同的例子就是可用的内存大小。Windows 和 Linux 中默认设置 1~8 Mbytes 作为栈空间，并且可以再增加。而堆的大小仅仅受限于实际物理内存大小或者是分页文件大小。相反，在嵌入式系统中，堆和栈的大小非常的受限，尤其是在使用RAM来分配时。因此，在这样受限的环境下，尽可能减少堆和栈的大小是非常必要的。一般来说，小型嵌入式系统中都不使用虚拟内存机制，堆和栈，全局变量的分配都是静态的，并且在程序生成时就已经被分配了。</p>
+<p>下面我们会给出一些在嵌入式系统中出现的特殊问题，但我们并不会讲解如何保护堆栈来对抗攻击。这在桌面和移动设备中是一个非常火热的话题，如果说现在嵌入式系统还没有这个问题的话，在未来也有可能会出现。</p>
+<h2 id="1-2-突破限制"><a href="#1-2-突破限制" class="headerlink" title="1.2 突破限制"></a>1.2 突破限制</h2><p>在你每天的生活中不断地突破限制是值得的，尽管有时也会让你处于困境。而在分配数据时突破限制则一定会让你处于麻烦之中。幸运的是，这种情况可能会很直观的出现，比如出现在系统测试期间，但也有可能出现的很晚，以至于产品已经分发到很多用户手中或者部署在远程环境中。</p>
+<p>分配数据溢出可能发生在如下三个区域：全局变量区，栈区，堆区。写数组或者指针引用时也可能会越界访问。一些数组访问可以被静态地验证，例如使用编译器和 MISRA C 检查，如下：</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> array<span class="token punctuation">[</span><span class="token number">32</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+array<span class="token punctuation">[</span><span class="token number">35</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0x1234</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>但当数组下标是一个变量时，静态分析可能无法找出所有的错误。另外，指针的引用也很难通过静态分析来追踪：</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token function">malloc</span><span class="token punctuation">(</span><span class="token number">32</span> <span class="token operator">*</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+p <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">35</span><span class="token punctuation">;</span>
+<span class="token operator">*</span>p <span class="token operator">=</span> <span class="token number">0x1234</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>运行时检测对象溢出的方法在桌面系统中已经出现很久了，例如 Purify，Insure++，Valgrind，等。这些工具通过在应用程序运行时插入验证内存引用的代码来实现。这明显降低了程序的运行速度并且增加了程序的大小，因此这种方法并不适合于小型嵌入式系统。</p>
+<h2 id="1-3-栈"><a href="#1-3-栈" class="headerlink" title="1.3 栈"></a>1.3 栈</h2><p>栈是一块用于存储程序数据的内存区域，例如下述数据：</p>
+<ul>
+<li>局部变量</li>
+<li>返回地址</li>
+<li>函数参数</li>
+<li>编译器临时变量</li>
+<li>中断时的上下文</li>
+</ul>
+<p><img src="http://blog.cyang.top/20180106162911664?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="Figure 1: Stack overflow situation这里写图片描述"></p>
+<p>栈中变量的生存时间依赖于函数的执行时间。函数返回后，其所使用的栈区随后就会被释放。<br>栈区大小必须被程序员静态设置。栈一般都是向下生长的，如果分配给栈区的大小不够，程序执行时的数据地址就会小于栈区，也就是发生了栈溢出。溢出会覆盖小于栈区地址的数据，这些数据通常都是全局变量和静态变量。因此，理解如何正确使用栈区可以解决部分程序运行时错误，例如变量被覆写，野指针和返回地址错误。上面这些错误都是很难发现的。但如果设置太大的栈区，则无疑浪费了内存空间。<br>我们将重点介绍一些统计程序运行所需栈区大小和检测栈区相关错误的方法。</p>
+<h2 id="1-4-堆"><a href="#1-4-堆" class="headerlink" title="1.4 堆"></a>1.4 堆</h2><p>堆区被用于系统动态分配使用。在一些小型嵌入式系统中，动态内存和堆区通常都是可选的。动态内存区可在程序的不同阶段被复用。当一个模块不再需要一些内存时，它可以将其返还给分配器，以便别的模块可以使用这块内存。</p>
+<p>存储在堆区的部分内容如下：</p>
+<ul>
+<li>临时数据对象</li>
+<li>C++ new/delete</li>
+<li>C++ STL containers</li>
+<li>C++ exceptions</li>
+</ul>
+<p>在大型系统中，统计堆区的使用量是非常困难的，甚至是不可能的，因为程序的执行是动态的。此外，在嵌入式系统中并没有太多工具可以被用于测量堆区使用量，但是我们将会探讨一些方法。</p>
+<p>保证堆区完整是非常重要的。分配的数据区通常都是和分配器自用数据穿插在一起的。错误使用分配的数据区不仅可能使别的数据区被修改，也有可能修改了内存分配器自用数据，这通常会导致应用程序的崩溃。我们将会探讨一些可以检查堆区是否完整的方法。</p>
+<p>另一个需要考虑的是堆区的实时性能是不确定的。内存分配的时间取决于已经被分配了的堆的大小和所请求的空间大小。开发嵌入式项目的程序员是极其不愿意见到这种情况的，因为嵌入式程序通常都是周期循环驱动。</p>
+<p>尽管在本文中堆是一个核心的话题，但能提供的指南也只是如何在小型嵌入式系统中减少堆区的大小。</p>
+<h1 id="二、可靠的栈区设计"><a href="#二、可靠的栈区设计" class="headerlink" title="二、可靠的栈区设计"></a>二、可靠的栈区设计</h1><h2 id="2-1-为什么计算栈区非常困难？"><a href="#2-1-为什么计算栈区非常困难？" class="headerlink" title="2.1 为什么计算栈区非常困难？"></a>2.1 为什么计算栈区非常困难？</h2><p>有很多因素造成了统计栈区使用量非常困难。很多应用程序都非常复杂并且由事件驱动，通常会由数以百计的函数和很多的中断来组成。如果允许中断嵌套，则在任何时候都有可能发生中断，这种情况变得难以掌握。这意味着程序的执行顺序变得难以追踪。另外通过函数指针间接的调用不同的函数以及递归和注释的汇编程序也会给统计栈区使用量带来错误。</p>
+<p>很多微控制器支持多重栈，例如一个系统栈，一个用户栈。当你使用嵌入式系统，诸如 µC/OS，ThreadX等时，多重栈是必须的，因为每个任务都拥有自己的栈区域。运行时库和第三方软件同样会使计算变得复杂，因为它们的源代码通常都是不开放的。修改代码或是应用程序的调度顺序也可能会影响栈的使用量。不同的编译器和编译等级会产生不同的代码，这同样影响栈的使用量。总之，持续追踪栈的最大使用量是非常有必要的。</p>
+<h2 id="2-2-如何设置栈的大小"><a href="#2-2-如何设置栈的大小" class="headerlink" title="2.2 如何设置栈的大小"></a>2.2 如何设置栈的大小</h2><p>设计应用程序时，栈的大小是一个需要考虑的因素，因此你需要一种方法来判断所需的栈大小。就算你将 RAM 全部的剩余空间都分配给栈使用，也未必是足够的。一个可行的办法是测试系统在最坏情况下所需的栈大小。在这样的测试中，你只需检测到底有多少栈空间被使用。简单来说有两种方法，一是通过打印输出当前的栈消耗，二是在测试结束输出追踪到的栈最大的消耗。但正如上面提到的，在很多复杂的系统里这种最坏情况是很难被捕获的。根本原因在于当测试某些带有中断的事件驱动系统时，部分程序执行路径可能根本没有被测试到。</p>
+<p>另一种方法可以从理论上计算栈的需求量。显然，人为计算一个复杂系统的需求量是不可能的。因此需要一个可以分析复杂系统的工具。这个工具可以分析二进制文件或者源代码文件。如果是分析二进制文件，则需要工作在机器指令级别，找出所有程序指针（PC）的变化，从而找到最坏情况下的执行路径。如果是分析源代码，则需要读取所有包含的汇编单元。在所有情况下，分析工具都必须通过汇编单元中的指针找出直接调用函数和间接调用函数，并通过调用路径计算出一个保守的栈使用量。源代码分析工具需要知道编译器对栈的一些设置，例如对齐方式和编译器临时变量。</p>
+<p>你自己独立编写一个这样的工具无疑是非常困难的，因此也有一些经济的替换方案。例如独立的静态栈计算工具，或是由解决方案提供商提供的工具，像是用于 Express Logic ThreadX RTOS 的分析工具。编译器和链接器也可以被用于计算栈需求量信息。这个功能可以在诸如 IAR Embedded Workbench 之类的工具上获得。现在我们来看一些可以被用于预估栈使用量的方法。</p>
+<h3 id="2-2-1-其他设置栈大小的方法"><a href="#2-2-1-其他设置栈大小的方法" class="headerlink" title="2.2.1 其他设置栈大小的方法"></a>2.2.1 其他设置栈大小的方法</h3><p>一种计算栈深度的方法是检测栈指针的地址。栈指针的地址可以从一个函数的参数的地址或是局部变量的地址来得到。如果在分别主程序起始处和你认为的可能占用最多栈空间的函数中获取到栈指针的地址，你就可以计算出栈的最大需求量。下面是一个例子，这里假设栈从高地址向低地址生长：</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">char</span> <span class="token operator">*</span>highStack<span class="token punctuation">,</span> <span class="token operator">*</span>lowStack<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  highStack <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>argc<span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Current stack usage: %d\n"</span><span class="token punctuation">,</span>highStack <span class="token operator">-</span> lowStack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">deepest_stack_path_function</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">int</span> a<span class="token punctuation">;</span>
+  lowStack <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>a<span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这种方法在小型确定的系统里可以得到很好的结果，但是在很多系统里你很难判断嵌套函数调用所需的栈深度，并且你也很难触发出程序的最坏情况。</p>
+<p>注意，这种方法获取到的栈使用量并不将中断函数所需的栈空间考虑在内。</p>
+<p>这个方法的一个变种可以解决这个问题。这个方法通过一个高频的中断进行周期采样栈指针。这个中断频率应该尽可能设置到最高以避免影响应用程序的执行性能。通常设置在 10~250 KHz之间。这种方法的好处在于你不需要手动去寻找栈的最深使用情况。另外，当采样中断可以抢占别的中断时，这种方法也可以统计出中断函数所需的栈空间。然而，由于中断函数通常都非常快速的执行完，因此可能会错过周期的采样中断。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">sampling_timer_interrupt_handler</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">char</span><span class="token operator">*</span> currentStack<span class="token punctuation">;</span>
+  <span class="token keyword">int</span> a<span class="token punctuation">;</span>
+  currentStack <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>a<span class="token punctuation">;</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>currentStack <span class="token operator">&lt;</span> lowStack<span class="token punctuation">)</span>
+    lowStack <span class="token operator">=</span> currentStack<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-2-2-栈保护区"><a href="#2-2-2-栈保护区" class="headerlink" title="2.2.2 栈保护区"></a>2.2.2 栈保护区</h3><p>栈保护区就在栈分配的地址空间下方，被用来检测栈是否溢出。桌面系统通常都具有这种方法，因此当栈发生溢出时，操作系统可以很容易的检测到这种情况。对于不具备 MMU 的小型嵌入式系统，栈保护区也可以被加入并且发挥作用。为了实现栈保护区的作用，它必须被设置成合理的大小，用以存储写入到里面的数据。</p>
+<p><img src="http://blog.cyang.top/20180106162940709?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="Figure 2: Stack with gard zone  "></p>
+<p>可以通过软件周期校验栈保护区的数据来持续监测栈保护区。</p>
+<p>如果一个 MCU 具有内存保护单元，那么对栈保护区的写入会触发内存保护单元，产生一个异常，异常的处理机制可以记录下上次发生了什么。</p>
+<h3 id="2-2-3-使用特定值填充栈"><a href="#2-2-3-使用特定值填充栈" class="headerlink" title="2.2.3 使用特定值填充栈"></a>2.2.3 使用特定值填充栈</h3><p>另一个被用于检测栈溢出的方法是，在应用程序执行前，使用一个特定的值填充完整个分配的栈空间，例如 0xCD。不论程序在什么位置停下，都可从栈的低地址向上查找，直到找到一个不等于 0xCD 的位置，通过这个位置可以算出栈的使用量。如果根本找不到这个值，那说明栈发生了溢出。</p>
+<p>尽管这是一个检测栈使用量的可靠方法，但这并不能保证一定能检测到栈溢出。例如，当栈发生溢出，改变了栈以外的数据，但是栈以内的数据没有被修改。同样地，你的程序也有可能错误的修改了栈的数据，从而发生误判。</p>
+<p>通常可以使用调试器检测栈的使用量。调试器可以展示一个如图3一样的界面用于表示栈使用量。调试器通常并不能检测到栈溢出，它只能检测到溢出发生后的信号。</p>
+<p><img src="http://blog.cyang.top/20180106162958135?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="Figure 3: Stack window in IAR Embedded Workbench"></p>
+<h3 id="2-2-4-链接器计算栈需求量"><a href="#2-2-4-链接器计算栈需求量" class="headerlink" title="2.2.4 链接器计算栈需求量"></a>2.2.4 链接器计算栈需求量</h3><p>我们现在来看一看生成工具例如编译器和调试器是如何计算栈的最大需求量的。我们将使用 IAR编译器和链接器来进行说明。编译器可以产生重要的信息，链接器在正确的情况下可以精确计算出每一个根函数（不被别的函数调用，例如主函数）所需的最大栈空间。只有在应用程序中每个函数的栈使用信息都是精确时，最终的结果才是精确的。</p>
+<p>通常来说，编译器可以为每一个 C函数生成栈使用信息，但在一些特殊情况下，你必须提供与栈有关的信息给它。例如，当应用程序中存在间接调用函数（使用函数指针）时，你必须为调用者提供一个可能被调用的函数列表。你可以通过在源码中添加预编译指令实现，如下述代码，也可以在链接时使用一个分离的栈使用控制文件实现。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span>
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+<span class="token macro property">#<span class="token directive keyword">pragma</span> calls = fun1, fun2, fun3</span>
+ func_arr<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>当你使用栈使用控制文件时，你也可以为模块中没有栈使用量信息的函数添加栈使用量信息。当某些重要信息被遗漏时，链接器同样会产生警告，例如出现下面这些情况：</p>
+<ul>
+<li>有至少一个函数没有栈使用量信息</li>
+<li>有至少一个间接调用没有提供可能被调用的函数列表</li>
+<li>出现未知的间接调用，但至少有一个没有被调用的函数不能生成一个根函数。</li>
+<li>应用程序中出现递归</li>
+<li>出现调用的函数被声明为不可被调用</li>
+</ul>
+<p>当栈分析开启之后，栈使用情况说明将被添加进链接器的 map 文件，上面列出了每一个根函数通常的调用链，这会影响栈的最大使用量。</p>
+<p><img src="http://blog.cyang.top/20180106163022629?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="Figure 4"></p>
+<p>将每一个根函数的栈使用量加在一起就是整个系统的栈最大使用量。在上面这个分析中，栈所需的最大使用量可能是 500+24+24+12+92+8+1144+8+24+32+152 = 2020 bytes。</p>
+<p>需要记住的是，这种方法产生的是最坏情况下的结果。应用程序所需的栈实际上不可能需要这么多，不管是刻意执行或者巧合发生。</p>
+<h1 id="三、可靠的堆区设计"><a href="#三、可靠的堆区设计" class="headerlink" title="三、可靠的堆区设计"></a>三、可靠的堆区设计</h1><h2 id="3-1-会出现什么错误"><a href="#3-1-会出现什么错误" class="headerlink" title="3.1 会出现什么错误"></a>3.1 会出现什么错误</h2><p>理解堆区的使用可以解决使用 malloc() 造成的内存错误。可以很容易的通过 malloc() 的返回值来检查状态，但是这样有些太迟了。这是一种严重的情况，因为很多系统没办法从中恢复，只能重新启动程序。由于堆区的动态性，高估堆区的使用量是很有必要的，但是分配太多则又导致内存资源的浪费。</p>
+<p>在使用堆区时，可能会出现两种错误：</p>
+<ul>
+<li>堆区数据（变量和指针）被覆写</li>
+<li>堆内部结构变量被修改</li>
+</ul>
+<p>在继续下文之前，让我们重新看一看动态内存分配的几个函数：</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span><span class="token operator">*</span> <span class="token function">malloc</span><span class="token punctuation">(</span>size_t size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>申请 size 字节</li>
+<li>返回一个申请好的内存块起始地址</li>
+<li>不清除这个内存块中的内容</li>
+<li>分配失败返回NULL</li>
+</ul>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token function">free</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span> p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>释放 p 指向的内存块</li>
+<li>p 必须指向已经通过 <code>malloc()</code>，<code>calloc()</code>，<code>realloc()</code>申请成功的内存块</li>
+<li>不能多次释放同一块内存</li>
+</ul>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span><span class="token operator">*</span> <span class="token function">calloc</span><span class="token punctuation">(</span>size_t nelem<span class="token punctuation">,</span> size_t elsize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>与 malloc() 的功能类似，申请 nelem 个 长度为 elsize 的连续空间</li>
+<li>并清除申请成功的空间内容</li>
+</ul>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span><span class="token operator">*</span> <span class="token function">realloc</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span> p<span class="token punctuation">,</span> size_t size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>和 malloc() 的功能类似</li>
+<li>增加或减小一个已经申请成功的空间大小</li>
+<li>返回的指针可能是一个新的地址</li>
+</ul>
+<p>C++ 中，也有类似的函数，如下：</p>
+<ul>
+<li>new operator - similar to malloc()</li>
+<li>new[]</li>
+<li>delete operator - similar to free()</li>
+<li>delete[]</li>
+</ul>
+<p>有很多的方法可以实现动态内存分配。在今天使用最多的是 Dlmalloc(Doug Lea’s Memory Allocator)。Dlmalloc 被用于 Linux 和很多嵌入式开发工具之中。Dlmalloc 可以免费获取并且是开源的。</p>
+<p>堆区的内部结构变量和申请的数据区通过应用程序穿插在一起。如果应用程序超出分配的数据区写数据，很有可能会修改堆的内部结构变量。</p>
+<p>图5是一个堆区内部结构变量和分配的数据区交错分布的一个示意图。从图中可以明显看出，若应用程序写的数据超出分配的数据区，则堆区内部变量一定会被错误的修改。</p>
+<p>计算堆区需要的内存空间是一个值得重视的问题。计算的方法令人生厌，因此很多设计者都采用试错的方法，即找到一个能使系统正常运行所需的做小堆空间，之后在这个基础上多分配50%空间。</p>
+<p><img src="http://blog.cyang.top/20180106163057723?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="Figure 5"></p>
+<h2 id="3-2-预防堆区错误"><a href="#3-2-预防堆区错误" class="headerlink" title="3.2 预防堆区错误"></a>3.2 预防堆区错误</h2><p>这有一些程序员和代码审阅者都需要知道的常见错误，这可以尽量避免发布的产品中出现堆区错误。</p>
+<ul>
+<li><p>初始化错误</p>
+<p>未初始化的全局变量始终都被初始化为0。这个众所周知的事实会让我们很容易假定在堆区也一样。Malloc()，realloc() 和 C++ new 都不对分配的空间初始化的。有一个 malloc() 的变种函数 calloc() 是对分配空间的数据进行清 0 操作的。在 C++ 中使用 new，会调用对应的构造函数，所以请确保对每个元素执行了初始化操作。</p>
+</li>
+<li><p>错误地区分实例和数组实例</p>
+<p>C++ 对实例和实例数组有不同的操作符，new 和 delete 用于实例，new[] 和 delete[] 用于数组。</p>
+</li>
+<li><p>向已被释放的空间写入数据</p>
+<p>这可能会导致堆区内部结构变量被修改，或是写入的数据之后被合理分配的数据空间内容所覆盖。不论是哪一种情况，都很难被捕获。</p>
+</li>
+<li><p>检查返回值错误</p>
+<p>malloc()，realloc()，calloc()在空间不足时都会返回 NULL。出现这种情况时，桌面系统会产生一个内存空间不足的错误，因此在开发时可以很容易的检测到。嵌入式系统可能会从0地址开始编码，并且有一些特殊的情况。如果你的 MCU 具有内存保护单元，你可以将其设置为当程序试图向只读区域写入数据是产生一个存储保护错误。</p>
+</li>
+<li><p>多次释放同一块内存区域</p>
+<p>这将损坏堆区内部结构变量，并且这很难被检测到。</p>
+</li>
+<li><p>写入的数据超出了分配的空间</p>
+<p>这将损坏堆区内部结构变量，并且这很难被检测到。</p>
+</li>
+</ul>
+<p><img src="http://blog.cyang.top/20180106163116174?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="Figure 6"></p>
+<p>后面的三种错误也可以容易检测到，前提是你将标准 malloc()，free()或相关函数操作的数据空间做一个封装。封装意味着你需要申请一些额外的数据空间来存储用于校验的信息。关于封装的结构图如图6所示。顶部的特殊数值区域被用于检错，并且在释放数据空间时用于校验。在数据区域下方的 size 区域，用于释放封装区时找到特殊数值。这样的封装会对每一次分配的数据区增加8字节空间，这对于大部分的应用程序来说都是可以接受的。下面有一个例子展示了如何修改 C++ 中全局的 new 和 delete 操作符。这个例子可以处理申请的数据空间没有及时释放的错误。在一些应用程序中，这可能不是什么问题。在这种情况下，封装必须保持一个分配数据区的列表，并且周期性地检查其是否正确。这种实现所带来的开销并不如其听上去的那么多，因为大部分的嵌入式系统仅使用少量的动态内存，并且限制分配列表在一个合理的范围。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdint.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">define</span> MAGIC_NUMBER 0xefdcba98</span>
+uint32_t myMallocMaxMem<span class="token punctuation">;</span>
+
+
+<span class="token keyword">void</span><span class="token operator">*</span> <span class="token function">MyMalloc</span><span class="token punctuation">(</span>size_t bytes<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  uint8_t <span class="token operator">*</span>p<span class="token punctuation">,</span> <span class="token operator">*</span>p_end<span class="token punctuation">;</span>
+  <span class="token keyword">static</span> uint8_t<span class="token operator">*</span> mLow <span class="token operator">=</span> <span class="token punctuation">(</span>uint8_t<span class="token operator">*</span><span class="token punctuation">)</span><span class="token number">0xffffffff</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* lowest address 
+returned by
+                                                  malloc() */</span>
+  <span class="token keyword">static</span> uint8_t<span class="token operator">*</span> mHigh<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* highest address + data returned by 
+malloc() */</span>
+  bytes <span class="token operator">=</span> <span class="token punctuation">(</span>bytes <span class="token operator">+</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token operator">~</span><span class="token number">3</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* ensure alignment for magic number */</span>
+  p <span class="token operator">=</span> <span class="token punctuation">(</span>uint8_t<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span>bytes <span class="token operator">+</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* add 2x32-bit for size and magic 
+number */</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token function">abort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* out of memory */</span>
+  <span class="token punctuation">}</span>
+  <span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">(</span>uint32_t<span class="token operator">*</span><span class="token punctuation">)</span>p<span class="token punctuation">)</span> <span class="token operator">=</span> bytes<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* remember size */</span>
+  <span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">(</span>uint32_t<span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">(</span>p <span class="token operator">+</span> <span class="token number">4</span> <span class="token operator">+</span> bytes<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">=</span> MAGIC_NUMBER<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* write magic number 
+after
+                                                   user allocation */</span>
+  <span class="token comment" spellcheck="true">/* crude method of estimating maximum used size since application 
+start */</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">&lt;</span> mLow<span class="token punctuation">)</span> mLow <span class="token operator">=</span> p<span class="token punctuation">;</span>
+  p_end <span class="token operator">=</span> p <span class="token operator">+</span> bytes <span class="token operator">+</span> <span class="token number">8</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>p_end <span class="token operator">></span> mHigh<span class="token punctuation">)</span> mHigh <span class="token operator">=</span> p_end<span class="token punctuation">;</span>
+  myMallocMaxMem <span class="token operator">=</span> mHigh <span class="token operator">-</span> mLow<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> p <span class="token operator">+</span> <span class="token number">4</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* allocated area starts after size */</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">MyFree</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span> vp<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  uint8_t<span class="token operator">*</span> p <span class="token operator">=</span> <span class="token punctuation">(</span>uint8_t<span class="token operator">*</span><span class="token punctuation">)</span>vp <span class="token operator">-</span> <span class="token number">4</span><span class="token punctuation">;</span>
+  <span class="token keyword">int</span> bytes <span class="token operator">=</span> <span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">(</span>uint32_t<span class="token operator">*</span><span class="token punctuation">)</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">/* check that magic number is not corrupted */</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">(</span>uint32_t<span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">(</span>p <span class="token operator">+</span> <span class="token number">4</span> <span class="token operator">+</span> bytes<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> MAGIC_NUMBER<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token function">abort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* error: data overflow or freeing already freed memory */</span>
+  <span class="token punctuation">}</span>
+  <span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">(</span>uint32_t<span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">(</span>p <span class="token operator">+</span> <span class="token number">4</span> <span class="token operator">+</span> bytes<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* remove magic number to be 
+able to
+                                        detect freeing already freed memory */</span>
+  <span class="token function">free</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token macro property">#<span class="token directive keyword">ifdef</span> __cplusplus</span>
+<span class="token comment" spellcheck="true">// global override of operator new, delete, new[] and delete[]</span>
+<span class="token keyword">void</span><span class="token operator">*</span> operator <span class="token function">new</span> <span class="token punctuation">(</span>size_t bytes<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token function">MyMalloc</span><span class="token punctuation">(</span>bytes<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> 
+<span class="token keyword">void</span> operator <span class="token function">delete</span> <span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>p<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token function">MyFree</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3-3-如何设置堆的大小"><a href="#3-3-如何设置堆的大小" class="headerlink" title="3.3 如何设置堆的大小"></a>3.3 如何设置堆的大小</h2><p>我们如何确定程序所需的堆空间的最小值？由于程序动态运行并且可能出现碎片，因此这个问题的答案是非常重要的。在这里我们推荐的方法是在程序动态分配内存尽可能多的占满堆空间的情况下去测试应用程序。从一个小内存反复测试可能出现的碎片带来的影响是非常有必要的。测试完成后，出现的堆的最大使用量可以考虑为实际的堆大小。依据具体的应用程序特点，应考虑留出 25%~100% 的余量。</p>
+<p>桌面系统中，通过实现 sbrk() ，堆的最大使用量可以从 malloc_max_footprint() 得到。嵌入式系统并不实现 sbrk()，内存分配器通常只在一块内存上进行分配。因此 malloc_max_footprint() 函数是没用的，它仅仅返回整个 heap 的大小。一个解决方案就是在每次调用 malloc() 后，调用 mallinfo()，例如之前提到的封装的例子，或者是计算分配空间的总大小。Mallinfo()的计算非常密集，可能会对性能产生影响。一个更好的方法是记录分配区域距离的最大值。这很容易完成，并且如封装示例中展示的那样；最大值记录在变量 myMallocMaxMem 中。这种方法仅在堆区是一块连续的内存空间时有用。</p>
+<h1 id="四、结论"><a href="#四、结论" class="headerlink" title="四、结论"></a>四、结论</h1><p>设置合理的堆栈大小对于一个安全稳定的嵌入式系统来说是非常重要的。虽然计算堆栈所需的内存空间大小是非常复杂和困难的，但是有大量有用的工具和方法可以被使用。为了在发布的产品中不出现堆栈溢出情况，在开发阶段付出再多的时间和金钱用于计算都是值得的。</p>
+<h1 id="五、参考资料"><a href="#五、参考资料" class="headerlink" title="五、参考资料"></a>五、参考资料</h1><ul>
+<li>1、Nigel Jones, blog posts at embeddedgurus.com, 2007 and 2009</li>
+<li>2、John Regehr ,“Say no to stack overflow”, EE Times Design, 2004</li>
+<li>3、Carnegie Mellon University , “Secure Coding in C and C++, Module 4, Dynamic Memory Management”, 2010</li>
+</ul>
+
+					
+				</div>
+			</div>
+		</article>
+
+		<ul class="am-pagination">
+    
+    	<li class="am-pagination-prev">
+   		<a class="pull-left" href="/2018/02/27/STM32F469 CoreMark跑分测试/" title="STM32F469 CoreMark跑分测试">
+      		&laquo; 上一篇
+		</a>
+		</li>
+	
+	
+		<li class="am-pagination-next">
+		<a class="pull-right" href="/2018/01/05/Nexus5 安装Gapps/" title="Nexus5 安装 Gapps">
+			下一篇 &raquo;
+		</a>
+		</li>
+	 
+ </ul>
+        
+
+		<div class="theme-annie-comment-button-container">
+	<button id="annie-comment-button" class="theme-annie-comment-button" onclick="Annie_Comment()">
+		加载评论
+		<!--加载评论-->
+	</button>
+</div>
+
+<div id="annie-comment-container" class="theme-annie-comment-main-container">
+
+	
+		
+			<!-- comment demo -->
+			<style>
+	.clear-left {
+		padding-left: 0;
+	}
+	
+	.clear-right {
+		padding-right: 0;
+	}
+</style>
+<form class="am-form am-g">
+	<fieldset>
+		<div class="am-form-group am-u-sm-4 clear-left">
+			<input type="text" class="" placeholder="name">
+		</div>
+		<div class="am-form-group am-u-sm-4">
+			<input type="email" class="" placeholder="email">
+		</div>
+		<div class="am-form-group am-u-sm-4 clear-right">
+			<input type="text" class="" placeholder="blog">
+		</div>
+
+		<div class="am-form-group">
+			<textarea class="" rows="5" placeholder="just go go"></textarea>
+		</div>
+
+		<p><button type="submit" class="am-btn am-btn-default">发表评论</button></p>
+	</fieldset>
+</form>
+		
+	
+
+</div>
+
+<script type="text/javascript">
+	/* Show Comment */
+	var Annie_Comment = function() {
+		function Show_Hidden(obj) {
+			obj.style.display = 'block';
+		}
+		
+		//var obutton = $('#annie-comment-button');
+		//var obutton = $('#annie-comment-container');
+		var obutton = document.getElementById("annie-comment-button" || "0");
+		var odiv = document.getElementById("annie-comment-container");
+		if( 'obutton' ) {
+			obutton.onclick = function() {
+				Show_Hidden(odiv);
+				$("#annie-comment-button").css("display", 'none');
+				return false;
+			}
+		}
+	};
+
+	(function Annie_Init() {
+		Annie_Comment();
+	})();
+</script>
+		
+		<!--
+	时间：2018-09-24
+	描述：The TOC module refers to 'https://github.com/codefine/hexo-theme-mellow', include toc.ejs、toc.js、toc.css. All rights reserved by codefine. 
+-->
+
+	
+		<aside class="post-widget">
+			<nav class="post-toc-wrap" id="post-toc">
+				
+					<strong>文章目录</strong>
+				
+				
+				<!--toc(post.content)-->
+				<ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、一份简短的堆和栈介绍"><span class="post-toc-text">一、一份简短的堆和栈介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-概要"><span class="post-toc-text">1.1 概要</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-突破限制"><span class="post-toc-text">1.2 突破限制</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-栈"><span class="post-toc-text">1.3 栈</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-4-堆"><span class="post-toc-text">1.4 堆</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、可靠的栈区设计"><span class="post-toc-text">二、可靠的栈区设计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-为什么计算栈区非常困难？"><span class="post-toc-text">2.1 为什么计算栈区非常困难？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-如何设置栈的大小"><span class="post-toc-text">2.2 如何设置栈的大小</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-1-其他设置栈大小的方法"><span class="post-toc-text">2.2.1 其他设置栈大小的方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-2-栈保护区"><span class="post-toc-text">2.2.2 栈保护区</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-3-使用特定值填充栈"><span class="post-toc-text">2.2.3 使用特定值填充栈</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-4-链接器计算栈需求量"><span class="post-toc-text">2.2.4 链接器计算栈需求量</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、可靠的堆区设计"><span class="post-toc-text">三、可靠的堆区设计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-会出现什么错误"><span class="post-toc-text">3.1 会出现什么错误</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-预防堆区错误"><span class="post-toc-text">3.2 预防堆区错误</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3-如何设置堆的大小"><span class="post-toc-text">3.3 如何设置堆的大小</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、结论"><span class="post-toc-text">四、结论</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#五、参考资料"><span class="post-toc-text">五、参考资料</span></a></li></ol>
+			</nav>
+			<div class="post-toc-bar"><div>
+		</div></div></aside>
+	
+
+	</div>
+</div>
+		</div>
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="blog-text-center">
+		<div class="theme-annie-social">
+				
+				
+					<a href="https://github.com/cyang812" title="Github" target="_blank"><i class="fa fa-github"></i>&nbsp;</a>
+					
+				
+					<a href="https://weibo.com/cyang812" title="Weibo" target="_blank"><i class="fa fa-weibo"></i>&nbsp;</a>
+				
+					
+				
+					<a href="/" title="QQ" target="_blank"><i class="fa fa-qq"></i>&nbsp;</a>
+					
+				
+					<a href="https://twitter.com/cyang812" title="Twitter" target="_blank"><i class="fa fa-twitter"></i>&nbsp;</a>
+						
+				
+		</div>
+	</div>
+
+	<div class="blog-text-center">
+		<div class="theme-annie-copyright">
+			
+				&copy; 2016 - 2018, content by cyang. All Rights Reserved.			       	
+			
+		</div>
+	</div>
+
+	<div class="blog-text-center">
+		<div class="theme-annie-copyright">
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.		
+		</div>
+	</div>
+</footer>
+		<!-- <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script> -->
+
+<script>
+	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
+</script>
+
+<style>
+	.motto {
+		color: #000000;
+		font-size: 20px;
+		margin: 100px 25% 0;
+		width: 50%;
+		line-height: 1.4;
+		font-family:"KaiTi", "STXingkai", "Source Sans Pro", "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
+		text-align: center;
+	}
+	@media(max-width: 890px) {
+		.motto {	
+			margin: 100px 10% 0;
+			width: 80%;
+		}
+	}
+	@media(max-width: 890px) {
+		.motto {
+			margin: 100px 5% 0;
+			width: 90%;
+		}
+	}
+</style>
+
+
+	<script src="/js/motto.js"></script>
+	<script type="text/javascript">
+		$(".motto").html(getMingYanContent());
+	</script>	
+
+
+
+	<div class="popup search-popup local-search-popup">
+    <span class="popup-btn-close">
+      ESC
+    </span>
+    <div class="container">
+      <div class="col-md-8 col-md-offset-2">
+
+        <div class="local-search-header clearfix">
+            <span class="search-icon"></span>
+            <div class="local-search-input-wrapper">
+              <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+            </div>
+        </div>
+
+        <div id="local-search-result"></div>
+
+      </div>
+    </div>
+</div>
+
+<script src="/js/ziploader.js"></script>
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // get search zip version
+    $.get('/searchVersion.txt?t=' + (+new Date()), function(res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson () {
+      initLoad(['/search.zip'], {
+        loadOptions: {
+          success: function(obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function(e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions:{
+          'json':'application/json'
+        }
+      })
+    }
+
+    // search function;
+    var searchFunc = function(search_id, content_id) {
+      'use strict';
+
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function() {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function(data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title ? data.title.trim() : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content ? data.content.trim().replace(/<[^>]+>/g,"") : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function(keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0, position = [], index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+
+            // show search results
+
+            if (isMatch) {
+              // sort index by position of keyword
+
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+
+              // merge hits into slices
+
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+
+                  // move to next position of hit
+
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {
+                  hits: hits,
+                  start: start,
+                  end: end,
+                  searchTextCount: searchTextCountInSlice
+                };
+              }
+
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if(start < 0){
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if(end > content.length){
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+
+              // sort slices in content by search text's count and hits' count
+
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+
+              // select top N slices in content
+
+              var upperBound = parseInt('2');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+
+              // highlight title and content
+
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+
+              var resultItem = '';
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+              } else {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+              }
+
+              slicesOfContent.forEach(function (slice) {
+                resultItem +=  "<p class=\"search-result\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+
+              resultItem += "</li>";
+              resultItems.push({
+                item: resultItem,
+                searchTextCount: searchTextCount,
+                hitCount: hitCount,
+                id: resultItems.length
+              });
+            }
+          })
+        };
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /> no result </div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<ul class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</ul>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+
+      // remove loading animation
+      $('body').css('overflow', '');
+
+      proceedsearch();
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        $('.sb-close').click();
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+	<script type="text/javascript" src="/js/love.js"></script>
+
+
+
+	<script type="text/javascript" src="/js/toc.js"></script>
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript">
+	//generate a random img that pre_name 'from 0 to 110'
+	var random_bg = Math.floor(Math.random() * 109 + 1);
+
+	//var bg = 'url(/img/random/' + random_bg + '.jpg)';		
+	var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+
+	$("#header-bg-2").css("background-image", bg);
+</script>
+		
+		<!--back to top-->
+        <style type="text/css">
+	#totop {
+		background: white;
+		border-radius: 50%;
+		position: fixed;
+		right: 5.4%;
+		bottom: 80px;
+		cursor: pointer;
+	}
+	
+	#totop a {
+		color: #474747;
+		background-color: transparent;
+		padding: 10px;
+		text-decoration: none;
+	}
+	
+	@media(max-width:512px) {
+		#totop {
+			display: none;
+			visibility: hidden;
+		}
+	}
+</style>
+
+
+	<div id="totop">
+  		<a href="javascript:;" class="fa fa-arrow-up"></a>
+	</div>
+
+	</body>
+	</html>
+

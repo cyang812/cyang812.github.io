@@ -1,0 +1,992 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+
+	<!DOCTYPE html>
+	<html>
+		
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<title>cyang&#39;s blog</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="apple-mobile-web-app-title" content="Amaze UI">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="cyang">
+    <meta name="keywords" content="cyang">
+    <meta name="description" content="just do IT">
+   	<!-- css -->
+	<link rel="stylesheet" href="/css/style.css">
+
+	<!-- favicon -->
+	<link href="/img/favicon.ico" rel="Shortcut Icon" type="image/ico">
+	
+	<!-- font-awesome -->
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+	<body>	
+		<!--Preloader-->
+<div id="preloader">
+	<div id="status">
+		<img alt="PRELOADER" src="/img/logo.png">
+	</div>
+</div>
+<!--Preloader end-->
+
+<!-- header -->
+
+	<header id="header-bg-1" style="background-image: url( https://source.unsplash.com/collection/954550/1920x1080 );">	
+
+	
+		<div id="cd-logo"><a href="/">Welcome</a></div>		
+	
+	
+	<!-- motto or description -->
+		
+ 		<p class="motto">不念过去 不负现在 不畏将来</p>
+	
+	
+	<!-- current page name or title -->
+	
+		
+		
+			
+			<p class="page-name">主页</p>	
+			
+		
+	
+	
+	<!-- others: such as change-bg, time... -->
+	<p class="page-name-other">
+		12/4/2018 
+		<style type="text/css">
+	header:after {
+		content: '';
+		position: relative;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background: #222222;
+		opacity: .5;
+		z-index: -1;
+	}
+	
+	.change-header-bg{
+		font-style: normal;
+	}
+	.change-header-bg i{
+		text-align: center;
+		cursor: pointer;
+		pointer-events: bounding-box;
+	}
+	@media(max-width:512px) {
+		.change-header-bg {
+			display: none;
+			visibility: hidden;
+		}
+	}
+	
+</style>
+
+<script type="text/javascript">
+	function changeHeaderBg(){
+		var random_bg = Math.floor(Math.random() * 109 + 1);
+		var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+		$("#header-bg-2").css("background-image", bg);
+	}
+</script>
+
+<span class="change-header-bg">
+	——&nbsp;<i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>	
+</span>
+	</p>		
+</header>
+
+<!-- nav -->
+<div id="cd-nav">
+	<a href="#0" title="menu" class="cd-nav-trigger"><span></span></a>
+
+	<nav id="cd-main-nav">
+		<ul>
+			
+      		<li class="fa fa-/">
+           		<a href="/" title="主页">主页</a>	
+      		</li>
+    		
+      		<li class="fa fa-/archives">
+           		<a href="/archives" title="归档">归档</a>	
+      		</li>
+    		
+      		<li class="fa fa-/categories">
+           		<a href="/categories" title="分类">分类</a>	
+      		</li>
+    		
+      		<li class="fa fa-/tags">
+           		<a href="/tags" title="标签">标签</a>	
+      		</li>
+    		
+    		
+        	
+            	<li class="fa fa-/search"><a href="javascript:;" class="popup-trigger" title="Search">搜索</a></li>
+        	
+		</ul>
+	</nav>
+</div>
+
+		<!--main-->
+		<main> 
+		<div class="page-container">
+		
+	<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed">
+    <div class="am-u-md-8 am-u-sm-12">
+		<div class="pure">
+			<li>
+				
+						
+					<div class="pure-text">
+						<h2>
+							
+	
+		<a href="/2018/04/28/CSDN博客数据导出/" itemprop="url">		
+			CSDN博客数据导出		
+		</a>
+	
+
+						</h2>
+						
+						
+							<p>
+								
+									</p><h3 id="CSDN2HEXO-源码地址"><a href="#CSDN2HEXO-源码地址" class="headerlink" title="CSDN2HEXO 源码地址"></a><a href="https://github.com/cyang812/CSDN2HEXO" target="_blank" rel="noopener">CSDN2HEXO 源码地址</a></h3><h1 id="CSDN2HEXO"><a href="#CSDN2HEXO" class="headerlink" title="CSDN2HEXO"></a>CSDN2HEXO</h1><p>CSDN2HEXO 是一款基于<a href="http://open.csdn.net/" target="_blank" rel="noopener">CSDN开放平台</a> 的 csdn blog 内容下载器， 可以下载博客中的文章内容和图片，文章保存为 markdown 格式，图片可下载无水印图片，并根据文章标题生成文件夹存储相关数据。</p>
+								  
+							<p></p>
+						
+
+						<span>
+							<i class="fa fa-clock-o"></i>&nbsp2018-04-28
+						</span>
+						<span class="continue-read">       	
+							<a href="/2018/04/28/CSDN博客数据导出/" class="pull-right">
+								展开全文
+							</a>		
+						<span>
+						
+					</span></span></div>       
+			
+				
+						
+					<div class="pure-text">
+						<h2>
+							
+	
+		<a href="/2018/04/18/C语言中，隐藏结构体的细节/" itemprop="url">		
+			C语言中，隐藏结构体的细节		
+		</a>
+	
+
+						</h2>
+						
+						
+							<p>
+								
+									</p><p>本文转载自 <a href="https://www.cnblogs.com/qingergege/p/6882107.html" target="_blank" rel="noopener">博客园</a></p>
+<p>我们都知道，在C语言中，结构体中的字段都是可以访问的。或者说，在C++ 中，类和结构体的主要区别就是<strong>类中成员变量默认为private，而结构体中默认为public</strong>。结构体的这一个特性，导致结构体中封装的数据，实际上并没有封装，外界都可以访问结构体中的字段。</p>
+								  
+							<p></p>
+						
+
+						<span>
+							<i class="fa fa-clock-o"></i>&nbsp2018-04-18
+						</span>
+						<span class="continue-read">       	
+							<a href="/2018/04/18/C语言中，隐藏结构体的细节/" class="pull-right">
+								展开全文
+							</a>		
+						<span>
+						
+					</span></span></div>       
+			
+				
+						
+					<div class="pure-text">
+						<h2>
+							
+	
+		<a href="/2018/03/28/C语言 符号的不同意义/" itemprop="url">		
+			C语言 符号的不同意义		
+		</a>
+	
+
+						</h2>
+						
+						
+							<p>
+								
+									</p><p>C语言的许多符号在不同的上下文环境里有不同的意义，相当于被“重载”了。如下展示了一些符号的不同意义。</p>
+<h2 id="static"><a href="#static" class="headerlink" title="static"></a>static</h2><ul>
+<li>在函数内部，表示该变量的值在各个调用间一直保持延续性。类似与全局变量，区别在于作用域不同。</li>
+<li>在函数外部，表示该函数或者变量只对本文件可见。</li>
+</ul>
+								  
+							<p></p>
+						
+
+						<span>
+							<i class="fa fa-clock-o"></i>&nbsp2018-03-28
+						</span>
+						<span class="continue-read">       	
+							<a href="/2018/03/28/C语言 符号的不同意义/" class="pull-right">
+								展开全文
+							</a>		
+						<span>
+						
+					</span></span></div>       
+			
+				
+						
+					<div class="pure-text">
+						<h2>
+							
+	
+		<a href="/2018/03/26/IAR 和 keil 使用外部 SDRAM 的区别/" itemprop="url">		
+			IAR 和 keil 使用外部 SDRAM 的区别		
+		</a>
+	
+
+						</h2>
+						
+						
+							<p>
+								
+									</p><p>当芯片内部的 SRAM 不够用时，就需要在外部扩展 SDRAM，然后在写程序时将一些比较大的 buffer 定义在外部内存中。在进行正确的配置之后，对外部 SDRAM 的使用，和芯片内部的 SRAM 是一样的，可以直接对 SDRAM 的地址进行读写访问。</p>
+								  
+							<p></p>
+						
+
+						<span>
+							<i class="fa fa-clock-o"></i>&nbsp2018-03-26
+						</span>
+						<span class="continue-read">       	
+							<a href="/2018/03/26/IAR 和 keil 使用外部 SDRAM 的区别/" class="pull-right">
+								展开全文
+							</a>		
+						<span>
+						
+					</span></span></div>       
+			
+				
+						
+					<div class="pure-text">
+						<h2>
+							
+	
+		<a href="/2018/03/22/C语言 ringBuffer/" itemprop="url">		
+			C语言 ringBuffer		
+		</a>
+	
+
+						</h2>
+						
+						
+							<p>
+								
+									</p><h1 id="一、-ringBuffer-介绍"><a href="#一、-ringBuffer-介绍" class="headerlink" title="一、 ringBuffer 介绍"></a>一、 ringBuffer 介绍</h1><p>ringBuffer 称作环形缓冲，也有叫 circleBuffer 的。就是取内存中一块连续的区域用作环形缓冲区的数据存储区。这块连续的存储会被反复使用，向 ringBuffer 写入数据总是从写指针的位置开始，如写到实际存储区的末尾还没有写完，则将剩余的数据从存储区的头开始写；从该 ringBuffer 读出数据也是从读指针的位置开始，如读到实际存储区的末尾还没有读完，则从存储区的头开始读剩下的数据。</p>
+								  
+							<p></p>
+						
+
+						<span>
+							<i class="fa fa-clock-o"></i>&nbsp2018-03-22
+						</span>
+						<span class="continue-read">       	
+							<a href="/2018/03/22/C语言 ringBuffer/" class="pull-right">
+								展开全文
+							</a>		
+						<span>
+						
+					</span></span></div>       
+			
+				
+						
+					<div class="pure-text">
+						<h2>
+							
+	
+		<a href="/2018/03/18/C语言 malloc 内存泄漏/" itemprop="url">		
+			C语言 malloc 内存泄漏		
+		</a>
+	
+
+						</h2>
+						
+						
+							<p>
+								
+									</p><p>错误代码如下：</p>
+<pre><code class="c">int Init_layer2_Decoder(void)
+{
+    Stream = (struct mad_stream*)malloc(sizeof(struct mad_stream));
+    Frame = (struct mad_frame*)malloc(sizeof(struct mad_frame));
+    Synth = (struct mad_synth*)malloc(sizeof(struct mad_synth));
+
+    if(Stream==NULL || Frame==NULL || Synth==NULL)
+    {
+        printf(&quot;init mp2Dec fail!\n&quot;);
+        return -1;
+    }
+
+    mad_stream_init(Stream);
+    mad_frame_init(Frame);
+    mad_synth_init(Synth);
+
+    return 0;
+}
+
+</code></pre>
+								  
+							<p></p>
+						
+
+						<span>
+							<i class="fa fa-clock-o"></i>&nbsp2018-03-18
+						</span>
+						<span class="continue-read">       	
+							<a href="/2018/03/18/C语言 malloc 内存泄漏/" class="pull-right">
+								展开全文
+							</a>		
+						<span>
+						
+					</span></span></div>       
+			
+				
+						
+					<div class="pure-text">
+						<h2>
+							
+	
+		<a href="/2018/03/12/STM32 硬件CRC和软件CRC速度比较/" itemprop="url">		
+			STM32 硬件CRC和软件CRC速度比较		
+		</a>
+	
+
+						</h2>
+						
+						
+							<p>
+								
+									</p><h1 id="一、测试条件"><a href="#一、测试条件" class="headerlink" title="一、测试条件"></a>一、测试条件</h1><p>硬件： STM32L432KC<br>主频： 80MHz<br>编译器： IAR 8.20.1<br>编译选项： High Speed no size constraints<br>CRC 生成多项式： 0x782f</p>
+<h1 id="二、测试方法"><a href="#二、测试方法" class="headerlink" title="二、测试方法"></a>二、测试方法</h1><p>软件提前生成CRC表，用于查询。分别使用软件CRC算法和硬件CRC外设对一个缓存进行计算，目的是从该缓存中找到同步头。同步头共11字节，前两个字节为后九个字节的CRC校验值。通过迭代算法依次对11字节进行计算和比较，当找到同步头后返回同步头偏移量。通过时间比较两者之间的速度。</p>
+<h1 id="三、测试结果"><a href="#三、测试结果" class="headerlink" title="三、测试结果"></a>三、测试结果</h1><p>迭代24464次后，从缓存中找到同步头。<br>不开启编译时间优化时，软件算法用时238ms，硬件CRC用时220ms。<br><img src="http://blog.cyang.top/20180312224132752?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+								  
+							<p></p>
+						
+
+						<span>
+							<i class="fa fa-clock-o"></i>&nbsp2018-03-12
+						</span>
+						<span class="continue-read">       	
+							<a href="/2018/03/12/STM32 硬件CRC和软件CRC速度比较/" class="pull-right">
+								展开全文
+							</a>		
+						<span>
+						
+					</span></span></div>       
+			
+				
+						
+					<div class="pure-text">
+						<h2>
+							
+	
+		<a href="/2018/03/03/下载 tumblr 标记为喜欢的内容/" itemprop="url">		
+			下载 tumblr 标记为喜欢的内容		
+		</a>
+	
+
+						</h2>
+						
+						
+							<p>
+								
+									</p><p>源代码发布在github : <a href="https://github.com/cyang812/get_tumblr_likes" target="_blank" rel="noopener">get_tumblr_likes</a></p>
+<h1 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h1><p>本项目使用 python 编写，分析 tumblr 账户中喜欢的内容，给出资源链接，并下载。<br>其中 <code>test.json</code> 是一份 tumblr 返回的喜欢数据的 json 示例，提取里面图片和视频的资源地址后下载，下载的内容如下图。</p>
+<p><img src="http://blog.cyang.top/20180303164838919?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+								  
+							<p></p>
+						
+
+						<span>
+							<i class="fa fa-clock-o"></i>&nbsp2018-03-03
+						</span>
+						<span class="continue-read">       	
+							<a href="/2018/03/03/下载 tumblr 标记为喜欢的内容/" class="pull-right">
+								展开全文
+							</a>		
+						<span>
+						
+					</span></span></div>       
+			
+				
+						
+					<div class="pure-text">
+						<h2>
+							
+	
+		<a href="/2018/03/03/STM32 无法通过 百分号f 打印浮点数/" itemprop="url">		
+			STM32 无法通过 百分号f 打印浮点数		
+		</a>
+	
+
+						</h2>
+						
+						
+							<p>
+								
+									</p><h1 id="一、问题"><a href="#一、问题" class="headerlink" title="一、问题"></a>一、问题</h1><p>使用 IAR 开发 STM32，发现无法通过 printf 重定向到串口打印出浮点数。代码如下：<br><img src="http://blog.cyang.top/20180302144541975?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+								  
+							<p></p>
+						
+
+						<span>
+							<i class="fa fa-clock-o"></i>&nbsp2018-03-03
+						</span>
+						<span class="continue-read">       	
+							<a href="/2018/03/03/STM32 无法通过 百分号f 打印浮点数/" class="pull-right">
+								展开全文
+							</a>		
+						<span>
+						
+					</span></span></div>       
+			
+				
+						
+					<div class="pure-text">
+						<h2>
+							
+	
+		<a href="/2018/03/01/STM32L432 CoreMark跑分测试/" itemprop="url">		
+			STM32L432 CoreMark跑分测试		
+		</a>
+	
+
+						</h2>
+						
+						
+							<p>
+								
+									测试环境： IAR for ARM 7.80.4
+测试得分：277官方给出的分数为：273.55如下图：
+	
+								  
+							</p>
+						
+
+						<span>
+							<i class="fa fa-clock-o"></i>&nbsp2018-03-01
+						</span>
+						<span class="continue-read">       	
+							<a href="/2018/03/01/STM32L432 CoreMark跑分测试/" class="pull-right">
+								展开全文
+							</a>		
+						<span>
+						
+					</span></span></div>       
+			
+				     
+			</li>
+
+			
+	<ul class="am-pagination">
+		
+			<li class="am-pagination-prev">
+				<a href="/">&laquo; 上一页 </a>
+			</li>
+		
+		
+		
+			<li class="am-pagination-next">
+				<a href="/page/3/"> 下一页 &raquo; </a>
+			</li>
+		
+	</ul>
+    	
+		</div>
+    </div>
+</div>
+<!-- content end -->
+
+	
+	
+
+
+	
+	
+
+
+	<!--纯净风格-->
+
+		</div>
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="blog-text-center">
+		<div class="theme-annie-social">
+				
+				
+					<a href="https://github.com/cyang812" title="Github" target="_blank"><i class="fa fa-github"></i>&nbsp;</a>
+					
+				
+					<a href="https://weibo.com/cyang812" title="Weibo" target="_blank"><i class="fa fa-weibo"></i>&nbsp;</a>
+				
+					
+				
+					<a href="/" title="QQ" target="_blank"><i class="fa fa-qq"></i>&nbsp;</a>
+					
+				
+					<a href="https://twitter.com/cyang812" title="Twitter" target="_blank"><i class="fa fa-twitter"></i>&nbsp;</a>
+						
+				
+		</div>
+	</div>
+
+	<div class="blog-text-center">
+		<div class="theme-annie-copyright">
+			
+				&copy; 2016 - 2018, content by cyang. All Rights Reserved.			       	
+			
+		</div>
+	</div>
+
+	<div class="blog-text-center">
+		<div class="theme-annie-copyright">
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.		
+		</div>
+	</div>
+</footer>
+		<!-- <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script> -->
+
+<script>
+	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
+</script>
+
+<style>
+	.motto {
+		color: #000000;
+		font-size: 20px;
+		margin: 100px 25% 0;
+		width: 50%;
+		line-height: 1.4;
+		font-family:"KaiTi", "STXingkai", "Source Sans Pro", "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
+		text-align: center;
+	}
+	@media(max-width: 890px) {
+		.motto {	
+			margin: 100px 10% 0;
+			width: 80%;
+		}
+	}
+	@media(max-width: 890px) {
+		.motto {
+			margin: 100px 5% 0;
+			width: 90%;
+		}
+	}
+</style>
+
+
+
+
+	<div class="popup search-popup local-search-popup">
+    <span class="popup-btn-close">
+      ESC
+    </span>
+    <div class="container">
+      <div class="col-md-8 col-md-offset-2">
+
+        <div class="local-search-header clearfix">
+            <span class="search-icon"></span>
+            <div class="local-search-input-wrapper">
+              <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+            </div>
+        </div>
+
+        <div id="local-search-result"></div>
+
+      </div>
+    </div>
+</div>
+
+<script src="/js/ziploader.js"></script>
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // get search zip version
+    $.get('/searchVersion.txt?t=' + (+new Date()), function(res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson () {
+      initLoad(['/search.zip'], {
+        loadOptions: {
+          success: function(obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function(e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions:{
+          'json':'application/json'
+        }
+      })
+    }
+
+    // search function;
+    var searchFunc = function(search_id, content_id) {
+      'use strict';
+
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function() {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function(data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title ? data.title.trim() : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content ? data.content.trim().replace(/<[^>]+>/g,"") : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function(keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0, position = [], index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+
+            // show search results
+
+            if (isMatch) {
+              // sort index by position of keyword
+
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+
+              // merge hits into slices
+
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+
+                  // move to next position of hit
+
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {
+                  hits: hits,
+                  start: start,
+                  end: end,
+                  searchTextCount: searchTextCountInSlice
+                };
+              }
+
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if(start < 0){
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if(end > content.length){
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+
+              // sort slices in content by search text's count and hits' count
+
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+
+              // select top N slices in content
+
+              var upperBound = parseInt('2');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+
+              // highlight title and content
+
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+
+              var resultItem = '';
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+              } else {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+              }
+
+              slicesOfContent.forEach(function (slice) {
+                resultItem +=  "<p class=\"search-result\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+
+              resultItem += "</li>";
+              resultItems.push({
+                item: resultItem,
+                searchTextCount: searchTextCount,
+                hitCount: hitCount,
+                id: resultItems.length
+              });
+            }
+          })
+        };
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /> no result </div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<ul class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</ul>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+
+      // remove loading animation
+      $('body').css('overflow', '');
+
+      proceedsearch();
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        $('.sb-close').click();
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+	<script type="text/javascript" src="/js/love.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript">
+	//generate a random img that pre_name 'from 0 to 110'
+	var random_bg = Math.floor(Math.random() * 109 + 1);
+
+	//var bg = 'url(/img/random/' + random_bg + '.jpg)';		
+	var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+
+	$("#header-bg-2").css("background-image", bg);
+</script>
+		
+		<!--back to top-->
+        <style type="text/css">
+	#totop {
+		background: white;
+		border-radius: 50%;
+		position: fixed;
+		right: 5.4%;
+		bottom: 80px;
+		cursor: pointer;
+	}
+	
+	#totop a {
+		color: #474747;
+		background-color: transparent;
+		padding: 10px;
+		text-decoration: none;
+	}
+	
+	@media(max-width:512px) {
+		#totop {
+			display: none;
+			visibility: hidden;
+		}
+	}
+</style>
+
+
+	<div id="totop">
+  		<a href="javascript:;" class="fa fa-arrow-up"></a>
+	</div>
+
+	</body>
+	</html>
+

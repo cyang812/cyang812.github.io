@@ -1,0 +1,1003 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+
+	<!DOCTYPE html>
+	<html>
+		
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<title>STM32 定时器实现红外遥控数据接收</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="apple-mobile-web-app-title" content="Amaze UI">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="cyang">
+    <meta name="keywords" content="cyang">
+    <meta name="description" content="just do IT">
+   	<!-- css -->
+	<link rel="stylesheet" href="/css/style.css">
+
+	<!-- favicon -->
+	<link href="/img/favicon.ico" rel="Shortcut Icon" type="image/ico">
+	
+	<!-- font-awesome -->
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+	<body>	
+		<!--Preloader-->
+<div id="preloader">
+	<div id="status">
+		<img alt="PRELOADER" src="/img/logo.png">
+	</div>
+</div>
+<!--Preloader end-->
+
+<!-- header -->
+
+	<header id="header-bg-1" style="background-image: url( https://source.unsplash.com/collection/954550/1920x1080 );">	
+
+	
+		<div id="cd-logo"><a href="/">Welcome</a></div>		
+	
+	
+	<!-- motto or description -->
+		
+ 		<p class="motto">不念过去 不负现在 不畏将来</p>
+	
+	
+	<!-- current page name or title -->
+	
+		
+		
+			
+			<p class="page-name">当前文章&nbsp;:&nbsp;《STM32 定时器实现红外遥控数据接收》</p>
+			
+		
+	
+	
+	<!-- others: such as change-bg, time... -->
+	<p class="page-name-other">
+		12/4/2018 
+		<style type="text/css">
+	header:after {
+		content: '';
+		position: relative;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background: #222222;
+		opacity: .5;
+		z-index: -1;
+	}
+	
+	.change-header-bg{
+		font-style: normal;
+	}
+	.change-header-bg i{
+		text-align: center;
+		cursor: pointer;
+		pointer-events: bounding-box;
+	}
+	@media(max-width:512px) {
+		.change-header-bg {
+			display: none;
+			visibility: hidden;
+		}
+	}
+	
+</style>
+
+<script type="text/javascript">
+	function changeHeaderBg(){
+		var random_bg = Math.floor(Math.random() * 109 + 1);
+		var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+		$("#header-bg-2").css("background-image", bg);
+	}
+</script>
+
+<span class="change-header-bg">
+	——&nbsp;<i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>	
+</span>
+	</p>		
+</header>
+
+<!-- nav -->
+<div id="cd-nav">
+	<a href="#0" title="menu" class="cd-nav-trigger"><span></span></a>
+
+	<nav id="cd-main-nav">
+		<ul>
+			
+      		<li class="fa fa-/">
+           		<a href="/" title="主页">主页</a>	
+      		</li>
+    		
+      		<li class="fa fa-/archives">
+           		<a href="/archives" title="归档">归档</a>	
+      		</li>
+    		
+      		<li class="fa fa-/categories">
+           		<a href="/categories" title="分类">分类</a>	
+      		</li>
+    		
+      		<li class="fa fa-/tags">
+           		<a href="/tags" title="标签">标签</a>	
+      		</li>
+    		
+    		
+        	
+            	<li class="fa fa-/search"><a href="javascript:;" class="popup-trigger" title="Search">搜索</a></li>
+        	
+		</ul>
+	</nav>
+</div>
+
+		<!--main-->
+		<main> 
+		<div class="page-container">
+		<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed blog-content">
+	<div class="am-u-md-8 am-u-sm-12">
+
+		<article class="am-article blog-article-p">
+
+			<div class="am-article-hd">
+				
+
+
+				<h1 class="am-article-title blog-text-center">
+					
+					
+	
+		<a href="/2017/08/09/IR_Timer/" itemprop="url">		
+			STM32 定时器实现红外遥控数据接收		
+		</a>
+	
+
+				</h1>
+
+				<p class="am-article-meta blog-text-center">
+					<span>
+						<i class="fa fa-clock-o"></i> 
+						<a href="/2017/08/09/IR_Timer/" itemprop="url">
+	<time datetime="2017-08-09T04:35:23.000Z" itemprop="datePublished">
+  		2017-08-09
+  </time>
+</a>    
+&nbsp;
+					</span>
+					
+					<span>						
+						
+							<i class="fa fa-tags"></i>
+							
+								<a href="#STM32" title="STM32" rel="42">STM32</a>&nbsp;
+							
+								<a href="#红外线" title="红外线" rel="3">红外线</a>&nbsp;
+													 											
+						
+					</span>
+				</p>
+			</div>
+
+			<div class="am-article-bd">
+				<div class="content" id="post-content">
+					
+						<p><img src="http://blog.cyang.top/20170808231029615?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+<a id="more"></a>
+<h1 id="一、原理"><a href="#一、原理" class="headerlink" title="一、原理"></a>一、原理</h1><h2 id="1、红外发射协议"><a href="#1、红外发射协议" class="headerlink" title="1、红外发射协议"></a>1、红外发射协议</h2><ul>
+<li><p>红外通信的协议有很多种。这个实验使用的是NEC协议。这个协议采用PWM的方法进行调制，利用脉冲宽度来表示 0 和 1 。</p>
+</li>
+<li><p>NEC 遥控指令的数据格式为：同步码头、地址码、地址反码、控制码、控制反码。同步码由一个 9ms 的低电平和一个 4.5ms 的高电平组成，地址码、地址反码、控制码、控制反码均是 8 位数据格式。按照低位在前，高位在后的顺序发送。采用反码是为了增加传输的可靠性。因此，每帧的数据为 32 位，包括地址码，地址反码，控制码，控制反码。反码可用于解码时进行校验比对。</p>
+</li>
+<li><p>NEC码的位定义：一个脉冲对应 560us 的连续载波，一个逻辑 1 传输需要 2.25ms（560us 脉冲+1680us 低电平），一个逻辑 0 的传输需要 1.125ms（560us 脉冲+560us 低电平）。而遥控接收头在收到脉冲的时候为低电平，在没有脉冲的时候为高电平，这样，<strong>在接收头端收到的信号为：逻辑 1 应该是 560us 低+1680us 高，逻辑 0 应该是 560us 低+560us 高。</strong></p>
+<p> ​</p>
+</li>
+<li><p>红外数据的波形如下图：包括一个同步头和 32 帧数据。<br> <img src="http://blog.cyang.top/20170808230617825?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+</li>
+<li><p>下图可看出，同步头为 9ms 低电平加上 4.5ms 高电平，控制码为 8 个 0，控制反码为 8 个 1。<br>  <img src="http://blog.cyang.top/20170808231029615?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+</li>
+</ul>
+<h2 id="2、定时器计数"><a href="#2、定时器计数" class="headerlink" title="2、定时器计数"></a>2、定时器计数</h2><ul>
+<li>定时器就是按照一个特定的频率对计数值进行加一或减一操作，当数值溢出时则产生一个标志或中断。这里是用定时器计数产生一个周期性的中断。</li>
+</ul>
+<h2 id="3、实现方法"><a href="#3、实现方法" class="headerlink" title="3、实现方法"></a>3、实现方法</h2><ul>
+<li>利用定时器记录两个下降沿之间的时间，通过该时间判断是否是同步头信息、数据 1 或者数据 0。当检测到同步头，开始记录 32 个数据的时间值。<br><img src="http://blog.cyang.top/20170808225212279?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></li>
+</ul>
+<h1 id="二、实现"><a href="#二、实现" class="headerlink" title="二、实现"></a>二、实现</h1><h2 id="1、配置-GPIO-口下降沿触发中断"><a href="#1、配置-GPIO-口下降沿触发中断" class="headerlink" title="1、配置 GPIO 口下降沿触发中断"></a>1、配置 GPIO 口下降沿触发中断</h2><ul>
+<li><p>示例代码中使用 PA7 管脚，配置为上拉输入模式。</p>
+</li>
+<li><p>选择下降沿触发，是因为红外接收管默认情况下保持高电平，接收到数据时从高电平转变为低电平。</p>
+</li>
+<li><p>中断源选择为 <code>EXTI_Line7</code> ，在库函数中对该中断源定义的服务函数为 <code>EXTI9_5_IRQHandler()</code>，也就是说外部中断 5 到 9 是 共用一个中断服务函数的。</p>
+</li>
+<li><p>配置代码如下:</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">IR_Pin_init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    GPIO_InitTypeDef GPIO_InitStructure<span class="token punctuation">;</span>
+    EXTI_InitTypeDef EXTI_InitStructure<span class="token punctuation">;</span>
+    NVIC_InitTypeDef NVIC_InitStructure<span class="token punctuation">;</span>
+    <span class="token function">RCC_APB2PeriphClockCmd</span><span class="token punctuation">(</span>RCC_APB2Periph_GPIOA<span class="token operator">|</span>RCC_APB2Periph_AFIO<span class="token punctuation">,</span>ENABLE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    GPIO_InitStructure<span class="token punctuation">.</span>GPIO_Pin<span class="token operator">=</span>GPIO_Pin_7<span class="token punctuation">;</span>
+    GPIO_InitStructure<span class="token punctuation">.</span>GPIO_Mode<span class="token operator">=</span>GPIO_Mode_IPU<span class="token punctuation">;</span>
+    <span class="token function">GPIO_Init</span><span class="token punctuation">(</span>GPIOA<span class="token punctuation">,</span><span class="token operator">&amp;</span>GPIO_InitStructure<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">EXTI_ClearITPendingBit</span><span class="token punctuation">(</span>EXTI_Line7<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">GPIO_EXTILineConfig</span><span class="token punctuation">(</span>GPIO_PortSourceGPIOA<span class="token punctuation">,</span> GPIO_PinSource7<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    EXTI_InitStructure<span class="token punctuation">.</span>EXTI_Line<span class="token operator">=</span>EXTI_Line7<span class="token punctuation">;</span>
+    EXTI_InitStructure<span class="token punctuation">.</span>EXTI_Mode<span class="token operator">=</span>EXTI_Mode_Interrupt<span class="token punctuation">;</span>
+    EXTI_InitStructure<span class="token punctuation">.</span>EXTI_Trigger<span class="token operator">=</span>EXTI_Trigger_Falling<span class="token punctuation">;</span>
+    EXTI_InitStructure<span class="token punctuation">.</span>EXTI_LineCmd<span class="token operator">=</span>ENABLE<span class="token punctuation">;</span>
+    <span class="token function">EXTI_Init</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>EXTI_InitStructure<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+    <span class="token function">NVIC_PriorityGroupConfig</span><span class="token punctuation">(</span>NVIC_PriorityGroup_1<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    NVIC_InitStructure<span class="token punctuation">.</span>NVIC_IRQChannel <span class="token operator">=</span> EXTI9_5_IRQn<span class="token punctuation">;</span> 
+    NVIC_InitStructure<span class="token punctuation">.</span>NVIC_IRQChannelPreemptionPriority <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> 
+    NVIC_InitStructure<span class="token punctuation">.</span>NVIC_IRQChannelSubPriority <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>      
+    NVIC_InitStructure<span class="token punctuation">.</span>NVIC_IRQChannelCmd <span class="token operator">=</span> ENABLE<span class="token punctuation">;</span>  
+    <span class="token function">NVIC_Init</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>NVIC_InitStructure<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<h2 id="2、配置定时器计数值"><a href="#2、配置定时器计数值" class="headerlink" title="2、配置定时器计数值"></a>2、配置定时器计数值</h2><ul>
+<li><p>定时器使用的是 TIM2 通用定时器，模式为向上计数。在该模式中，计数器从 0 计数到自动加载值 (TIMx_ARR计数器的内容) ，然后重新从 0 开始计数并且产生一个计数器溢出事件。 </p>
+</li>
+<li><p>示例函数接收两个参数，分别为预分频器的值和自动加载值。通过调整这两个参数，可以灵活地改变定时器的计数周期。例如在 TIM2 的默认时钟源 PCLK1 为96MHz时，使用语句 <code>Tim2_UPCount_Init(SystemCoreClock/1000000-1,100-1);  //0.1ms</code> 进行初始化，可以每 0.1ms 产生一次中断。</p>
+</li>
+<li><p>示例代码如下：</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">Tim2_UPCount_Init</span><span class="token punctuation">(</span>u16 Prescaler<span class="token punctuation">,</span>u16 Period<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    TIM_TimeBaseInitTypeDef TIM_StructInit<span class="token punctuation">;</span>
+    NVIC_InitTypeDef NVIC_StructInit<span class="token punctuation">;</span>
+
+    <span class="token function">RCC_APB1PeriphClockCmd</span><span class="token punctuation">(</span>RCC_APB1Periph_TIM2<span class="token punctuation">,</span> ENABLE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    TIM_StructInit<span class="token punctuation">.</span>TIM_Period<span class="token operator">=</span>Period<span class="token punctuation">;</span>
+    TIM_StructInit<span class="token punctuation">.</span>TIM_Prescaler<span class="token operator">=</span>Prescaler<span class="token punctuation">;</span>
+    TIM_StructInit<span class="token punctuation">.</span>TIM_ClockDivision<span class="token operator">=</span>TIM_CKD_DIV1<span class="token punctuation">;</span>
+    TIM_StructInit<span class="token punctuation">.</span>TIM_CounterMode<span class="token operator">=</span>TIM_CounterMode_Up<span class="token punctuation">;</span>
+    TIM_StructInit<span class="token punctuation">.</span>TIM_RepetitionCounter<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token function">TIM_TimeBaseInit</span><span class="token punctuation">(</span>TIM2<span class="token punctuation">,</span> <span class="token operator">&amp;</span>TIM_StructInit<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">TIM_ITConfig</span><span class="token punctuation">(</span>TIM2<span class="token punctuation">,</span> TIM_IT_Update<span class="token punctuation">,</span> ENABLE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">TIM_Cmd</span><span class="token punctuation">(</span>TIM2<span class="token punctuation">,</span> ENABLE<span class="token punctuation">)</span><span class="token punctuation">;</span>    
+    <span class="token function">TIM_ClearFlag</span><span class="token punctuation">(</span>TIM2<span class="token punctuation">,</span> TIM_FLAG_Update<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    NVIC_StructInit<span class="token punctuation">.</span>NVIC_IRQChannel<span class="token operator">=</span>TIM2_IRQn<span class="token punctuation">;</span>
+    NVIC_StructInit<span class="token punctuation">.</span>NVIC_IRQChannelCmd<span class="token operator">=</span>ENABLE<span class="token punctuation">;</span>
+    NVIC_StructInit<span class="token punctuation">.</span>NVIC_IRQChannelPreemptionPriority<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    NVIC_StructInit<span class="token punctuation">.</span>NVIC_IRQChannelSubPriority<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token function">NVIC_Init</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>NVIC_StructInit<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<h2 id="3、定时器中断函数统计时间"><a href="#3、定时器中断函数统计时间" class="headerlink" title="3、定时器中断函数统计时间"></a>3、定时器中断函数统计时间</h2><ul>
+<li><p>如上所说，定时器每 0.1ms 计数完成，产生中断，在中断函数中对标志位 <code>ucTim2Flag</code> 加 1，意味着时间过去了 0.1ms。</p>
+</li>
+<li><p>时间标志位原型为 <code>uint16_t ucTim2Flag;</code> 。</p>
+</li>
+<li><p>示例代码如下：</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">TIM2_IRQHandler</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">TIM_ClearITPendingBit</span><span class="token punctuation">(</span>TIM2<span class="token punctuation">,</span> TIM_IT_Update<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ucTim2Flag<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<h2 id="4、GPIO-中断函数中接收-32-位数据"><a href="#4、GPIO-中断函数中接收-32-位数据" class="headerlink" title="4、GPIO 中断函数中接收 32 位数据"></a>4、GPIO 中断函数中接收 32 位数据</h2><ul>
+<li><p>在下降沿触发的 IO 口中断函数中，需要实现统计两个下降沿之间的时间，并将其记录在数组中。</p>
+</li>
+<li><p>下降沿第一次触发时，清除当前定时器中的计数值，以便统计时间。之后每一次下降沿触发就记录下当前计数值，然后再对其清零。如果该时间在同步头的时间区间内，对索引进行清零，表示重新开始接收数据。</p>
+</li>
+<li><p>完整接收同步头和 32 个数据之后，表示接收完成。</p>
+</li>
+<li><p>示例代码如下：</p>
+<pre class="line-numbers language-c"><code class="language-c">uint8_t irdata<span class="token punctuation">[</span><span class="token number">33</span><span class="token punctuation">]</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//用于记录两个下降沿之间的时间</span>
+bool receiveComplete<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//接收完成标志位</span>
+uint8_t idx<span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">//用于索引接收到的数值</span>
+bool startflag<span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">//表示开始接收</span>
+
+<span class="token keyword">void</span> <span class="token function">EXTI9_5_IRQHandler</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    uint16_t ir_time<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>startflag<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        ir_time <span class="token operator">=</span> ucTim2Flag<span class="token punctuation">;</span>    
+        <span class="token keyword">if</span><span class="token punctuation">(</span>ucTim2Flag <span class="token operator">&lt;</span> <span class="token number">150</span> <span class="token operator">&amp;&amp;</span> ucTim2Flag <span class="token operator">>=</span> <span class="token number">50</span> <span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 接收到同步头</span>
+        <span class="token punctuation">{</span>
+            idx<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 数组下标清零</span>
+        <span class="token punctuation">}</span>
+
+        irdata<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> ucTim2Flag<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 获取计数时间</span>
+        ucTim2Flag <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>            <span class="token comment" spellcheck="true">// 清零计数时间，以便下次统计</span>
+        idx<span class="token operator">++</span><span class="token punctuation">;</span>                     <span class="token comment" spellcheck="true">// 接收到一个数据，索引加1</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>idx<span class="token operator">==</span><span class="token number">33</span><span class="token punctuation">)</span>       <span class="token comment" spellcheck="true">// 如果接收到33个数据，包括32位数和以一个同步头</span>
+        <span class="token punctuation">{</span>
+            idx<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+            ucTim2Flag <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            receiveComplete <span class="token operator">=</span> TRUE<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span>   <span class="token comment" spellcheck="true">// 下降沿第一次触发</span>
+    <span class="token punctuation">{</span>
+        idx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        ucTim2Flag <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        startflag <span class="token operator">=</span> TRUE<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">EXTI_ClearITPendingBit</span><span class="token punctuation">(</span>EXTI_Line7<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 清除中断标志</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>​</p>
+</li>
+</ul>
+<h2 id="5、判断控制码值"><a href="#5、判断控制码值" class="headerlink" title="5、判断控制码值"></a>5、判断控制码值</h2><ul>
+<li><p>由于中断函数中接收并记录下的数据是两个下降沿之间的时间，并不是红外所发送的数据。因此需要根据红外协议，对 32 个时间进行判断，从而获得红外真正发送的数据。</p>
+</li>
+<li><p>下面这个函数需要在红外完整接收数据后执行，可通过判断接收完成标志位 <code>receiveComplete</code>  来实现。</p>
+</li>
+<li><p>示例代码如下：</p>
+<pre class="line-numbers language-c"><code class="language-c">uint8_t <span class="token function">Ir_Server</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    uint8_t i<span class="token punctuation">,</span>j<span class="token punctuation">,</span>idx<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//idx 从1 开始表示对同步头的时间不处理</span>
+    uint8_t temp<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span><span class="token number">4</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> j<span class="token operator">&lt;</span><span class="token number">8</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>irdata<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">>=</span><span class="token number">8</span> <span class="token operator">&amp;&amp;</span> irdata<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">&lt;</span> <span class="token number">15</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">//表示 0</span>
+            <span class="token punctuation">{</span>
+                temp <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>irdata<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">>=</span><span class="token number">18</span> <span class="token operator">&amp;&amp;</span> irdata<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token operator">&lt;</span><span class="token number">25</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//表示 1</span>
+            <span class="token punctuation">{</span>
+                temp <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            remote_code<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            remote_code<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">|</span><span class="token operator">=</span> temp<span class="token punctuation">;</span>
+            idx<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> remote_code<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 该数组中记录的是控制码，每个按键不一样</span>
+    <span class="token comment" spellcheck="true">//for(idx=0; idx&lt;4; idx++)</span>
+    <span class="token comment" spellcheck="true">//{</span>
+    <span class="token comment" spellcheck="true">//    printf("remote_code[%d] = %#x\n",idx,remote_code[idx]);</span>
+    <span class="token comment" spellcheck="true">//}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>​</p>
+</li>
+</ul>
+<h2 id="6、主函数"><a href="#6、主函数" class="headerlink" title="6、主函数"></a>6、主函数</h2><ul>
+<li><p>在 main 函数中，对 IO 口和 定时器进行初始化。</p>
+</li>
+<li><p>主循环中，通过判断接收完成标志位，对接收完成的按键控制码进行打印。</p>
+</li>
+<li><p>示例代码如下：</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+    <span class="token function">IR_Pin_init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">Tim2_UPCount_Init</span><span class="token punctuation">(</span>SystemCoreClock<span class="token operator">/</span><span class="token number">1000000</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>repeatEnable<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            repeatEnable <span class="token operator">=</span> FALSE<span class="token punctuation">;</span>
+            <span class="token function">Ir_Server</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"key_code = %#x\n"</span><span class="token punctuation">,</span>remote_code<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>​</p>
+</li>
+</ul>
+<h1 id="三、演示"><a href="#三、演示" class="headerlink" title="三、演示"></a>三、演示</h1><p>如下图为串口打印出接收的红外按键值信息：<br><img src="http://blog.cyang.top/20170808225232539?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+<p>说明1：这只是实现红外接收的其中一种方法，网上还有一种比较常见的方法是利用下降沿触发，在中断中进行延迟，判断高电平持续时间以此来判断信号类别。个人感觉这不是一种很好的方法，因为在中断中进行延时会导致主函数得不到及时的处理。</p>
+<p>说明2：在调试时，不要在中断处理中加入过多无关语句，例如打印语句，这会导致结果出错。</p>
+<blockquote>
+<p>本文档基于 STM32 F1 系列 MCU，固件库版本 3.5。其他 MCU 及固件库仅需要对库函数略作修改。</p>
+</blockquote>
+<blockquote>
+<p><a href="http://cyang.tech/2016/07/19/STM32%20%E7%BA%A2%E5%A4%96%E7%BA%BF%E5%AE%9E%E9%AA%8C/" target="_blank" rel="noopener">参考链接：STM32 红外线实验</a></p>
+</blockquote>
+<blockquote>
+<p><a href="http://cyang.tech/tags/STM32/" target="_blank" rel="noopener">更多关于 STM32 的文章</a></p>
+</blockquote>
+
+					
+				</div>
+			</div>
+		</article>
+
+		<ul class="am-pagination">
+    
+    	<li class="am-pagination-prev">
+   		<a class="pull-left" href="/2017/08/19/Arduino Button/" title="Arduino 按键实验">
+      		&laquo; 上一篇
+		</a>
+		</li>
+	
+	
+		<li class="am-pagination-next">
+		<a class="pull-right" href="/2017/08/01/leetcode power of three/" title="leetcode power of three">
+			下一篇 &raquo;
+		</a>
+		</li>
+	 
+ </ul>
+        
+
+		<div class="theme-annie-comment-button-container">
+	<button id="annie-comment-button" class="theme-annie-comment-button" onclick="Annie_Comment()">
+		加载评论
+		<!--加载评论-->
+	</button>
+</div>
+
+<div id="annie-comment-container" class="theme-annie-comment-main-container">
+
+	
+		
+			<!-- comment demo -->
+			<style>
+	.clear-left {
+		padding-left: 0;
+	}
+	
+	.clear-right {
+		padding-right: 0;
+	}
+</style>
+<form class="am-form am-g">
+	<fieldset>
+		<div class="am-form-group am-u-sm-4 clear-left">
+			<input type="text" class="" placeholder="name">
+		</div>
+		<div class="am-form-group am-u-sm-4">
+			<input type="email" class="" placeholder="email">
+		</div>
+		<div class="am-form-group am-u-sm-4 clear-right">
+			<input type="text" class="" placeholder="blog">
+		</div>
+
+		<div class="am-form-group">
+			<textarea class="" rows="5" placeholder="just go go"></textarea>
+		</div>
+
+		<p><button type="submit" class="am-btn am-btn-default">发表评论</button></p>
+	</fieldset>
+</form>
+		
+	
+
+</div>
+
+<script type="text/javascript">
+	/* Show Comment */
+	var Annie_Comment = function() {
+		function Show_Hidden(obj) {
+			obj.style.display = 'block';
+		}
+		
+		//var obutton = $('#annie-comment-button');
+		//var obutton = $('#annie-comment-container');
+		var obutton = document.getElementById("annie-comment-button" || "0");
+		var odiv = document.getElementById("annie-comment-container");
+		if( 'obutton' ) {
+			obutton.onclick = function() {
+				Show_Hidden(odiv);
+				$("#annie-comment-button").css("display", 'none');
+				return false;
+			}
+		}
+	};
+
+	(function Annie_Init() {
+		Annie_Comment();
+	})();
+</script>
+		
+		<!--
+	时间：2018-09-24
+	描述：The TOC module refers to 'https://github.com/codefine/hexo-theme-mellow', include toc.ejs、toc.js、toc.css. All rights reserved by codefine. 
+-->
+
+	
+		<aside class="post-widget">
+			<nav class="post-toc-wrap" id="post-toc">
+				
+					<strong>文章目录</strong>
+				
+				
+				<!--toc(post.content)-->
+				<ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、原理"><span class="post-toc-text">一、原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、红外发射协议"><span class="post-toc-text">1、红外发射协议</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、定时器计数"><span class="post-toc-text">2、定时器计数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、实现方法"><span class="post-toc-text">3、实现方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、实现"><span class="post-toc-text">二、实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、配置-GPIO-口下降沿触发中断"><span class="post-toc-text">1、配置 GPIO 口下降沿触发中断</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、配置定时器计数值"><span class="post-toc-text">2、配置定时器计数值</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、定时器中断函数统计时间"><span class="post-toc-text">3、定时器中断函数统计时间</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、GPIO-中断函数中接收-32-位数据"><span class="post-toc-text">4、GPIO 中断函数中接收 32 位数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5、判断控制码值"><span class="post-toc-text">5、判断控制码值</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6、主函数"><span class="post-toc-text">6、主函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、演示"><span class="post-toc-text">三、演示</span></a></li></ol>
+			</nav>
+			<div class="post-toc-bar"><div>
+		</div></div></aside>
+	
+
+	</div>
+</div>
+		</div>
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="blog-text-center">
+		<div class="theme-annie-social">
+				
+				
+					<a href="https://github.com/cyang812" title="Github" target="_blank"><i class="fa fa-github"></i>&nbsp;</a>
+					
+				
+					<a href="https://weibo.com/cyang812" title="Weibo" target="_blank"><i class="fa fa-weibo"></i>&nbsp;</a>
+				
+					
+				
+					<a href="/" title="QQ" target="_blank"><i class="fa fa-qq"></i>&nbsp;</a>
+					
+				
+					<a href="https://twitter.com/cyang812" title="Twitter" target="_blank"><i class="fa fa-twitter"></i>&nbsp;</a>
+						
+				
+		</div>
+	</div>
+
+	<div class="blog-text-center">
+		<div class="theme-annie-copyright">
+			
+				&copy; 2016 - 2018, content by cyang. All Rights Reserved.			       	
+			
+		</div>
+	</div>
+
+	<div class="blog-text-center">
+		<div class="theme-annie-copyright">
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.		
+		</div>
+	</div>
+</footer>
+		<!-- <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script> -->
+
+<script>
+	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
+</script>
+
+<style>
+	.motto {
+		color: #000000;
+		font-size: 20px;
+		margin: 100px 25% 0;
+		width: 50%;
+		line-height: 1.4;
+		font-family:"KaiTi", "STXingkai", "Source Sans Pro", "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
+		text-align: center;
+	}
+	@media(max-width: 890px) {
+		.motto {	
+			margin: 100px 10% 0;
+			width: 80%;
+		}
+	}
+	@media(max-width: 890px) {
+		.motto {
+			margin: 100px 5% 0;
+			width: 90%;
+		}
+	}
+</style>
+
+
+	<script src="/js/motto.js"></script>
+	<script type="text/javascript">
+		$(".motto").html(getMingYanContent());
+	</script>	
+
+
+
+	<div class="popup search-popup local-search-popup">
+    <span class="popup-btn-close">
+      ESC
+    </span>
+    <div class="container">
+      <div class="col-md-8 col-md-offset-2">
+
+        <div class="local-search-header clearfix">
+            <span class="search-icon"></span>
+            <div class="local-search-input-wrapper">
+              <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+            </div>
+        </div>
+
+        <div id="local-search-result"></div>
+
+      </div>
+    </div>
+</div>
+
+<script src="/js/ziploader.js"></script>
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // get search zip version
+    $.get('/searchVersion.txt?t=' + (+new Date()), function(res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson () {
+      initLoad(['/search.zip'], {
+        loadOptions: {
+          success: function(obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function(e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions:{
+          'json':'application/json'
+        }
+      })
+    }
+
+    // search function;
+    var searchFunc = function(search_id, content_id) {
+      'use strict';
+
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function() {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function(data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title ? data.title.trim() : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content ? data.content.trim().replace(/<[^>]+>/g,"") : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function(keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0, position = [], index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+
+            // show search results
+
+            if (isMatch) {
+              // sort index by position of keyword
+
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+
+              // merge hits into slices
+
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+
+                  // move to next position of hit
+
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {
+                  hits: hits,
+                  start: start,
+                  end: end,
+                  searchTextCount: searchTextCountInSlice
+                };
+              }
+
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if(start < 0){
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if(end > content.length){
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+
+              // sort slices in content by search text's count and hits' count
+
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+
+              // select top N slices in content
+
+              var upperBound = parseInt('2');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+
+              // highlight title and content
+
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+
+              var resultItem = '';
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+              } else {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+              }
+
+              slicesOfContent.forEach(function (slice) {
+                resultItem +=  "<p class=\"search-result\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+
+              resultItem += "</li>";
+              resultItems.push({
+                item: resultItem,
+                searchTextCount: searchTextCount,
+                hitCount: hitCount,
+                id: resultItems.length
+              });
+            }
+          })
+        };
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /> no result </div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<ul class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</ul>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+
+      // remove loading animation
+      $('body').css('overflow', '');
+
+      proceedsearch();
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        $('.sb-close').click();
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+	<script type="text/javascript" src="/js/love.js"></script>
+
+
+
+	<script type="text/javascript" src="/js/toc.js"></script>
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript">
+	//generate a random img that pre_name 'from 0 to 110'
+	var random_bg = Math.floor(Math.random() * 109 + 1);
+
+	//var bg = 'url(/img/random/' + random_bg + '.jpg)';		
+	var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+
+	$("#header-bg-2").css("background-image", bg);
+</script>
+		
+		<!--back to top-->
+        <style type="text/css">
+	#totop {
+		background: white;
+		border-radius: 50%;
+		position: fixed;
+		right: 5.4%;
+		bottom: 80px;
+		cursor: pointer;
+	}
+	
+	#totop a {
+		color: #474747;
+		background-color: transparent;
+		padding: 10px;
+		text-decoration: none;
+	}
+	
+	@media(max-width:512px) {
+		#totop {
+			display: none;
+			visibility: hidden;
+		}
+	}
+</style>
+
+
+	<div id="totop">
+  		<a href="javascript:;" class="fa fa-arrow-up"></a>
+	</div>
+
+	</body>
+	</html>
+

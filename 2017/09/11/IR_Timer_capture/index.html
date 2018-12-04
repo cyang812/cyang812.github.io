@@ -1,0 +1,1099 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+
+	<!DOCTYPE html>
+	<html>
+		
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<title>STM32 定时器输入捕获实现红外遥控数据接收</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="apple-mobile-web-app-title" content="Amaze UI">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="cyang">
+    <meta name="keywords" content="cyang">
+    <meta name="description" content="just do IT">
+   	<!-- css -->
+	<link rel="stylesheet" href="/css/style.css">
+
+	<!-- favicon -->
+	<link href="/img/favicon.ico" rel="Shortcut Icon" type="image/ico">
+	
+	<!-- font-awesome -->
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+	<body>	
+		<!--Preloader-->
+<div id="preloader">
+	<div id="status">
+		<img alt="PRELOADER" src="/img/logo.png">
+	</div>
+</div>
+<!--Preloader end-->
+
+<!-- header -->
+
+	<header id="header-bg-1" style="background-image: url( https://source.unsplash.com/collection/954550/1920x1080 );">	
+
+	
+		<div id="cd-logo"><a href="/">Welcome</a></div>		
+	
+	
+	<!-- motto or description -->
+		
+ 		<p class="motto">不念过去 不负现在 不畏将来</p>
+	
+	
+	<!-- current page name or title -->
+	
+		
+		
+			
+			<p class="page-name">当前文章&nbsp;:&nbsp;《STM32 定时器输入捕获实现红外遥控数据接收》</p>
+			
+		
+	
+	
+	<!-- others: such as change-bg, time... -->
+	<p class="page-name-other">
+		12/4/2018 
+		<style type="text/css">
+	header:after {
+		content: '';
+		position: relative;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background: #222222;
+		opacity: .5;
+		z-index: -1;
+	}
+	
+	.change-header-bg{
+		font-style: normal;
+	}
+	.change-header-bg i{
+		text-align: center;
+		cursor: pointer;
+		pointer-events: bounding-box;
+	}
+	@media(max-width:512px) {
+		.change-header-bg {
+			display: none;
+			visibility: hidden;
+		}
+	}
+	
+</style>
+
+<script type="text/javascript">
+	function changeHeaderBg(){
+		var random_bg = Math.floor(Math.random() * 109 + 1);
+		var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+		$("#header-bg-2").css("background-image", bg);
+	}
+</script>
+
+<span class="change-header-bg">
+	——&nbsp;<i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>	
+</span>
+	</p>		
+</header>
+
+<!-- nav -->
+<div id="cd-nav">
+	<a href="#0" title="menu" class="cd-nav-trigger"><span></span></a>
+
+	<nav id="cd-main-nav">
+		<ul>
+			
+      		<li class="fa fa-/">
+           		<a href="/" title="主页">主页</a>	
+      		</li>
+    		
+      		<li class="fa fa-/archives">
+           		<a href="/archives" title="归档">归档</a>	
+      		</li>
+    		
+      		<li class="fa fa-/categories">
+           		<a href="/categories" title="分类">分类</a>	
+      		</li>
+    		
+      		<li class="fa fa-/tags">
+           		<a href="/tags" title="标签">标签</a>	
+      		</li>
+    		
+    		
+        	
+            	<li class="fa fa-/search"><a href="javascript:;" class="popup-trigger" title="Search">搜索</a></li>
+        	
+		</ul>
+	</nav>
+</div>
+
+		<!--main-->
+		<main> 
+		<div class="page-container">
+		<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed blog-content">
+	<div class="am-u-md-8 am-u-sm-12">
+
+		<article class="am-article blog-article-p">
+
+			<div class="am-article-hd">
+				
+
+
+				<h1 class="am-article-title blog-text-center">
+					
+					
+	
+		<a href="/2017/09/11/IR_Timer_capture/" itemprop="url">		
+			STM32 定时器输入捕获实现红外遥控数据接收		
+		</a>
+	
+
+				</h1>
+
+				<p class="am-article-meta blog-text-center">
+					<span>
+						<i class="fa fa-clock-o"></i> 
+						<a href="/2017/09/11/IR_Timer_capture/" itemprop="url">
+	<time datetime="2017-09-11T04:35:23.000Z" itemprop="datePublished">
+  		2017-09-11
+  </time>
+</a>    
+&nbsp;
+					</span>
+					
+					<span>						
+						
+							<i class="fa fa-tags"></i>
+							
+								<a href="#STM32" title="STM32" rel="42">STM32</a>&nbsp;
+							
+								<a href="#红外线" title="红外线" rel="3">红外线</a>&nbsp;
+							
+								<a href="#定时器" title="定时器" rel="1">定时器</a>&nbsp;
+							
+								<a href="#输入捕获" title="输入捕获" rel="1">输入捕获</a>&nbsp;
+													 											
+						
+					</span>
+				</p>
+			</div>
+
+			<div class="am-article-bd">
+				<div class="content" id="post-content">
+					
+						<p><img src="http://blog.cyang.top/IR_Tim_Capture.png" alt="这里写图片描述"></p>
+<blockquote>
+<p>之前已经写过了一个使用定时器普通计时功能来识别红外遥控数据的<a href="http://cyang.tech/2017/08/09/IR_Timer/" target="_blank" rel="noopener">文章</a>。本次是使用定时器输入捕获来实现，这种方法比起定时器普通计数来说要更加复杂一些，不过效果会更好。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="一、原理"><a href="#一、原理" class="headerlink" title="一、原理"></a>一、原理</h1><h2 id="1、红外发射协议"><a href="#1、红外发射协议" class="headerlink" title="1、红外发射协议"></a>1、红外发射协议</h2><ul>
+<li>红外发射协议已经在之前的<a href="http://cyang.tech/2017/08/09/IR_Timer/" target="_blank" rel="noopener">文章</a>中写过，在此就不赘述。</li>
+</ul>
+<h2 id="2、定时器计数和输入捕获"><a href="#2、定时器计数和输入捕获" class="headerlink" title="2、定时器计数和输入捕获"></a>2、定时器计数和输入捕获</h2><ul>
+<li><p>定时器就是按照一个特定的频率对计数值进行加一或减一操作，当数值溢出时则产生一个标志或中断。</p>
+</li>
+<li><p>定时器的输入捕获就是可以测量输入信号的脉冲宽度。</p>
+</li>
+<li><p>本次就是通过普通计数和输入捕获的结合来实现的。</p>
+</li>
+</ul>
+<h2 id="3、实现方法"><a href="#3、实现方法" class="headerlink" title="3、实现方法"></a>3、实现方法</h2><ul>
+<li>利用定时器记录输入信号高脉冲的时间，通过该时间来判断数据是否是同步头信息、数据 1 或者数据 0。</li>
+</ul>
+<h1 id="二、实现"><a href="#二、实现" class="headerlink" title="二、实现"></a>二、实现</h1><h2 id="1、配置定时器2输入捕获通道"><a href="#1、配置定时器2输入捕获通道" class="headerlink" title="1、配置定时器2输入捕获通道"></a>1、配置定时器2输入捕获通道</h2><ul>
+<li><p>示例代码中使用 PA1 管脚，配置为上拉输入模式，复用功能为定时器2的通道2。</p>
+</li>
+<li><p>定时器采用普通定时器，定时器2，该定时器具有输入捕获功能。</p>
+</li>
+<li><p>配置定时器的两种工作模式，一个是普通计数器<code>TIM_TimeBaseInit</code>，一个是输入捕获模式<code>TIM_ICInit</code>。</p>
+</li>
+<li><p>配置定时器2的中断源，有两个中断源，一个是更新中断<code>TIM_IT_Update</code>，一个是输入捕获中断<code>TIM_IT_CC2</code>。</p>
+</li>
+<li><p>配置代码如下:</p>
+</li>
+</ul>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*
+* Ir input pin
+* mode:floating input
+* pin: PA1
+* GPIO_AF: TIM2_CH2
+*/</span>
+<span class="token keyword">void</span> <span class="token function">Ir_Pin_Init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    GPIO_InitTypeDef GPIO_InitStructure<span class="token punctuation">;</span>
+
+    <span class="token function">GPIO_PinAFConfig</span><span class="token punctuation">(</span>GPIOA<span class="token punctuation">,</span>GPIO_PinSource1<span class="token punctuation">,</span>GPIO_AF_2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    GPIO_InitStructure<span class="token punctuation">.</span>GPIO_Pin  <span class="token operator">=</span>  GPIO_Pin_1<span class="token punctuation">;</span>
+    GPIO_InitStructure<span class="token punctuation">.</span>GPIO_Mode <span class="token operator">=</span> GPIO_Mode_IN_FLOATING<span class="token punctuation">;</span>
+    GPIO_InitStructure<span class="token punctuation">.</span>GPIO_Speed <span class="token operator">=</span> GPIO_Speed_50MHz<span class="token punctuation">;</span>
+    <span class="token function">GPIO_Init</span><span class="token punctuation">(</span>GPIOA<span class="token punctuation">,</span> <span class="token operator">&amp;</span>GPIO_InitStructure<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">GPIO_SetBits</span><span class="token punctuation">(</span>GPIOA<span class="token punctuation">,</span>GPIO_Pin_1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//output 1</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//PA1 TIM2_CH2</span>
+<span class="token comment" spellcheck="true">//使用GPIO输入捕获实现红外接收</span>
+<span class="token keyword">void</span> <span class="token function">Remote_Init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    NVIC_InitTypeDef                NVIC_InitStructure<span class="token punctuation">;</span>
+    TIM_TimeBaseInitTypeDef         TIM_TimeBaseStructure<span class="token punctuation">;</span>
+    TIM_ICInitTypeDef               TIM_ICInitStructure<span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">/*使能TIM1时钟,默认时钟源为PCLK1(PCLK1未分频时不倍频,否则由PCLK1倍频输出),可选其它时钟源*/</span>
+    <span class="token function">RCC_APB1PeriphClockCmd</span><span class="token punctuation">(</span>RCC_APB1Periph_TIM2<span class="token punctuation">,</span> ENABLE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">Ir_Pin_Init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">TIM_ClearITPendingBit</span><span class="token punctuation">(</span>TIM2<span class="token punctuation">,</span>TIM_IT_Update<span class="token operator">|</span>TIM_IT_CC2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//清除中断和捕获标志位</span>
+
+    TIM_TimeBaseStructure<span class="token punctuation">.</span>TIM_Period <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//设定计数器自动重装值 最大10ms溢出</span>
+    TIM_TimeBaseStructure<span class="token punctuation">.</span>TIM_Prescaler <span class="token operator">=</span> <span class="token number">480</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//预分频器,0.1M的计数频率,10us加1.</span>
+    TIM_TimeBaseStructure<span class="token punctuation">.</span>TIM_ClockDivision <span class="token operator">=</span> TIM_CKD_DIV1<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//设置时钟分割:TDTS = Tck_tim</span>
+    TIM_TimeBaseStructure<span class="token punctuation">.</span>TIM_CounterMode <span class="token operator">=</span> TIM_CounterMode_Up<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//TIM向上计数模式</span>
+    <span class="token function">TIM_TimeBaseInit</span><span class="token punctuation">(</span>TIM2<span class="token punctuation">,</span> <span class="token operator">&amp;</span>TIM_TimeBaseStructure<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//根据指定的参数初始化TIMx</span>
+
+    TIM_ICInitStructure<span class="token punctuation">.</span>TIM_Channel <span class="token operator">=</span> TIM_Channel_2<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 选择输入端 IC2映射到TI2上</span>
+    TIM_ICInitStructure<span class="token punctuation">.</span>TIM_ICPolarity <span class="token operator">=</span> TIM_ICPolarity_Rising<span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//上升沿捕获</span>
+    TIM_ICInitStructure<span class="token punctuation">.</span>TIM_ICSelection <span class="token operator">=</span> TIM_ICSelection_DirectTI<span class="token punctuation">;</span>
+    TIM_ICInitStructure<span class="token punctuation">.</span>TIM_ICPrescaler <span class="token operator">=</span> TIM_ICPSC_DIV1<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//配置输入分频,不分频</span>
+    TIM_ICInitStructure<span class="token punctuation">.</span>TIM_ICFilter <span class="token operator">=</span> <span class="token number">0x03</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//IC4F=0011 配置输入滤波器 8个定时器时钟周期滤波</span>
+    <span class="token function">TIM_ICInit</span><span class="token punctuation">(</span>TIM2<span class="token punctuation">,</span> <span class="token operator">&amp;</span>TIM_ICInitStructure<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//初始化定时器输入捕获通道</span>
+
+    NVIC_InitStructure<span class="token punctuation">.</span>NVIC_IRQChannel <span class="token operator">=</span> TIM2_IRQn<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//TIM2中断</span>
+    NVIC_InitStructure<span class="token punctuation">.</span>NVIC_IRQChannelPriority <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//优先级0级</span>
+    NVIC_InitStructure<span class="token punctuation">.</span>NVIC_IRQChannelCmd <span class="token operator">=</span> ENABLE<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//IRQ通道被使能</span>
+    <span class="token function">NVIC_Init</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>NVIC_InitStructure<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//根据NVIC_InitStruct中指定的参数初始化外设NVIC寄存器</span>
+
+    <span class="token function">TIM_ITConfig</span><span class="token punctuation">(</span>TIM2<span class="token punctuation">,</span>TIM_IT_Update<span class="token operator">|</span>TIM_IT_CC2<span class="token punctuation">,</span>ENABLE<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//允许更新中断 ,允许CC2IE捕获中断</span>
+    <span class="token function">TIM_Cmd</span><span class="token punctuation">(</span>TIM2<span class="token punctuation">,</span>ENABLE<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//使能定时器2</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2、添加定时器2的中断服务函数"><a href="#2、添加定时器2的中断服务函数" class="headerlink" title="2、添加定时器2的中断服务函数"></a>2、添加定时器2的中断服务函数</h2><ul>
+<li><p>使用了两种定时器中断源，分别为计数溢出中断和输入捕获中断。但是这两种方式触发中断的中断服务函数是同一个，即<code>void TIM2_IRQHandler(void)</code>。</p>
+</li>
+<li><p>定时器使用的是 TIM2 通用定时器，模式为向上计数。在该模式中，计数器从 0 计数到自动加载值 (TIMx_ARR计数器的内容) ，然后重新从 0 开始计数并且产生一个计数器溢出事件。定时器计数溢出的周期为10ms，该中断的产生说明在10ms内都没有输入捕获来清空计数值，也就是输入信号没有发生变化，说明 10ms 没有收到红外信号了，因此可判断为接收完成。</p>
+</li>
+<li><p>输入捕获是为了测量高电平的持续时间，因此采用上升沿触发中断，对计数值清零，切换下一次为下降沿触发；在下降沿触发中断时，记下计数值，切换下一次为上升沿触发。因此在下降沿记下的时间即为高电平的时序时间。记录高电平持续时间的原因，是因为红外信号在表示逻辑0、逻辑1时低电平的持续时间的相同的，而高电平的持续时间不同的。</p>
+</li>
+<li><p>示例代码如下：</p>
+</li>
+</ul>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">//遥控器接收状态</span>
+<span class="token comment" spellcheck="true">//[7]:收到了引导码标志</span>
+<span class="token comment" spellcheck="true">//[6]:得到了一个按键的所有信息</span>
+<span class="token comment" spellcheck="true">//[5]:保留</span>
+<span class="token comment" spellcheck="true">//[4]:标记上升沿是否已经被捕获</span>
+<span class="token comment" spellcheck="true">//[3:0]:溢出计时器</span>
+uint8_t  RmtSta <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+uint16_t Dval<span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">//下降沿时计数器的值</span>
+uint32_t RmtRec <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//红外接收到的数据</span>
+uint8_t  RmtCnt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//按键按下的次数</span>
+
+<span class="token comment" spellcheck="true">//定时器2中断服务程序</span>
+<span class="token keyword">void</span> <span class="token function">TIM2_IRQHandler</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">TIM_GetITStatus</span><span class="token punctuation">(</span>TIM2<span class="token punctuation">,</span>TIM_IT_Update<span class="token punctuation">)</span> <span class="token operator">!=</span> RESET<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//计数溢出中断</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>RmtSta <span class="token operator">&amp;</span> <span class="token number">0x80</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//上次有数据被接收到了</span>
+        <span class="token punctuation">{</span>
+            RmtSta <span class="token operator">&amp;</span><span class="token operator">=</span> <span class="token operator">~</span><span class="token number">0x10</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//取消上升沿已经被捕获标记</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>RmtSta <span class="token operator">&amp;</span> <span class="token number">0x0f</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0x00</span><span class="token punctuation">)</span> RmtSta <span class="token operator">|</span><span class="token operator">=</span> <span class="token number">1</span><span class="token operator">&lt;&lt;</span><span class="token number">6</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//电平没有变化后延时10ms，可标记已经完成一次按键的信息采集</span>
+
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>RmtSta <span class="token operator">&amp;</span> <span class="token number">0x0f</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">14</span><span class="token punctuation">)</span> RmtSta<span class="token operator">++</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//若进入14，意味着定时器计数溢出了14次，即140ms</span>
+            <span class="token keyword">else</span>
+            <span class="token punctuation">{</span>
+                RmtSta <span class="token operator">&amp;</span><span class="token operator">=</span> <span class="token operator">~</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">&lt;&lt;</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//清空引导标识</span>
+                RmtSta <span class="token operator">&amp;</span><span class="token operator">=</span> <span class="token number">0xf0</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//清空计数器 ，意味着可以下一次的检测</span>
+
+                <span class="token comment" spellcheck="true">//RmtCnt = 0;</span>
+                <span class="token comment" spellcheck="true">//RmtSta &amp;= ~(1&lt;&lt;6);</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">TIM_GetITStatus</span><span class="token punctuation">(</span>TIM2<span class="token punctuation">,</span>TIM_IT_CC2<span class="token punctuation">)</span> <span class="token operator">!=</span> RESET<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">//输入捕获中断</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>RDATA<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">TIM_OC2PolarityConfig</span><span class="token punctuation">(</span>TIM2<span class="token punctuation">,</span>TIM_ICPolarity_Falling<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//设置下降沿触发捕获</span>
+            <span class="token function">TIM_SetCounter</span><span class="token punctuation">(</span>TIM2<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 清零计数值</span>
+            RmtSta <span class="token operator">|</span><span class="token operator">=</span> <span class="token number">0x10</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span>
+        <span class="token punctuation">{</span>
+            Dval <span class="token operator">=</span> <span class="token function">TIM_GetCapture2</span><span class="token punctuation">(</span>TIM2<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 获取计数值，该计数值代表高电平持续时间</span>
+            <span class="token function">TIM_OC2PolarityConfig</span><span class="token punctuation">(</span>TIM2<span class="token punctuation">,</span>TIM_ICPolarity_Rising<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 设置上升沿触发</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>RmtSta <span class="token operator">&amp;</span> <span class="token number">0x10</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>RmtSta <span class="token operator">&amp;</span> <span class="token number">0x80</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>Dval <span class="token operator">></span> <span class="token number">30</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>Dval <span class="token operator">&lt;</span> <span class="token number">80</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">{</span>
+                        RmtRec <span class="token operator">&lt;&lt;=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                        RmtRec <span class="token operator">|</span><span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>Dval <span class="token operator">></span> <span class="token number">140</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>Dval <span class="token operator">&lt;</span> <span class="token number">180</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">{</span>
+                        RmtRec <span class="token operator">&lt;&lt;=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                        RmtRec <span class="token operator">|</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>Dval <span class="token operator">></span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>Dval <span class="token operator">&lt;</span> <span class="token number">250</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">{</span>
+                        RmtCnt<span class="token operator">++</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 重复码</span>
+                        RmtSta <span class="token operator">&amp;</span><span class="token operator">=</span> <span class="token number">0xf0</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>Dval <span class="token operator">></span> <span class="token number">420</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>Dval <span class="token operator">&lt;</span> <span class="token number">470</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    RmtSta <span class="token operator">|</span><span class="token operator">=</span> <span class="token number">1</span><span class="token operator">&lt;&lt;</span><span class="token number">7</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//表示接收到同步头</span>
+                    RmtCnt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//清零按键次数</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            RmtSta <span class="token operator">&amp;</span><span class="token operator">=</span> <span class="token operator">~</span><span class="token number">0x10</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">TIM_ClearFlag</span><span class="token punctuation">(</span>TIM2<span class="token punctuation">,</span>TIM_IT_Update<span class="token operator">|</span>TIM_IT_CC2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3、红外按键扫描函数"><a href="#3、红外按键扫描函数" class="headerlink" title="3、红外按键扫描函数"></a>3、红外按键扫描函数</h2><ul>
+<li><p>该函数放在主循环中，轮训判断按键是否接收完成。如果接收完成则开始分析键值。</p>
+</li>
+<li><p>该函数返回一个16位的数值，其中低八位表示键值，高八位表示按下的次数，依次来分析长按键和短按键。这一点主要是通过红外协议中重复码的规定来实现的。</p>
+</li>
+<li><p>红外协议中规定，若按下一个键后没有放开，则会以 108ms 为一个周期发送重复码。重复码表现为2.25ms的高电平。</p>
+</li>
+<li><p>示例代码如下：</p>
+</li>
+</ul>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*SystemKeybuf
+*处理红外键盘
+*返回值: keybuf
+*   0xffff,没有任何按键按下
+*   其他,按下的按键键值.
+*   keybuf[15:8] : key cnt
+*   keybuf[7:0]  : key code
+*/</span>
+uint16_t <span class="token function">Remote_Scan</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    uint16_t keybuf <span class="token operator">=</span> <span class="token number">0xffff</span><span class="token punctuation">;</span>
+    uint8_t sta <span class="token operator">=</span> <span class="token number">0xff</span><span class="token punctuation">;</span>
+    uint8_t t1<span class="token punctuation">,</span>t2<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>RmtSta <span class="token operator">&amp;</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">&lt;&lt;</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//得到一个按键的所有信息了</span>
+    <span class="token punctuation">{</span>
+        t1 <span class="token operator">=</span> RmtRec <span class="token operator">>></span> <span class="token number">24</span><span class="token punctuation">;</span>            <span class="token comment" spellcheck="true">//得到地址码</span>
+        t2 <span class="token operator">=</span> <span class="token punctuation">(</span>RmtRec <span class="token operator">>></span> <span class="token number">16</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">0xff</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//得到地址反码</span>
+        <span class="token comment" spellcheck="true">//printf("rmtrec = %#x\n",RmtRec);</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>t1 <span class="token operator">==</span> <span class="token punctuation">(</span>uint8_t<span class="token punctuation">)</span><span class="token operator">~</span>t2<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>t1 <span class="token operator">==</span> REMOTE_ID<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//检验遥控识别码(ID)及地址</span>
+        <span class="token comment" spellcheck="true">//if(t1 == (uint8_t)~t2)//检验遥控识别码(ID)及地址</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//printf("t1 = %d\n",t1);</span>
+            t1 <span class="token operator">=</span> RmtRec <span class="token operator">>></span> <span class="token number">8</span><span class="token punctuation">;</span>
+            t2 <span class="token operator">=</span> RmtRec<span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>t1 <span class="token operator">==</span> <span class="token punctuation">(</span>uint8_t<span class="token punctuation">)</span><span class="token operator">~</span>t2<span class="token punctuation">)</span> sta <span class="token operator">=</span> t1<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//键值正确</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>sta <span class="token operator">!=</span> <span class="token number">0xff</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//按键数据正确</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>RmtCnt <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// short key</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>RmtSta <span class="token operator">&amp;</span> <span class="token number">0x80</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// release</span>
+                <span class="token punctuation">{</span>
+                    keybuf <span class="token operator">=</span> RmtCnt<span class="token punctuation">;</span>
+                    keybuf <span class="token operator">&lt;&lt;=</span> <span class="token number">8</span><span class="token punctuation">;</span>
+                    keybuf <span class="token operator">|</span><span class="token operator">=</span> sta<span class="token punctuation">;</span>
+
+                    RmtSta <span class="token operator">&amp;</span><span class="token operator">=</span> <span class="token operator">~</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">&lt;&lt;</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//清除接收到有效按键标识</span>
+                    RmtCnt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">//清除按键次数计数器</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token macro property">#<span class="token directive keyword">if</span> 0</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>RmtCnt <span class="token operator">==</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">// &amp;&amp; RmtCnt &lt; 15)  // long key</span>
+            <span class="token punctuation">{</span>
+                keybuf <span class="token operator">=</span> RmtCnt<span class="token punctuation">;</span>
+                keybuf <span class="token operator">&lt;&lt;=</span> <span class="token number">8</span><span class="token punctuation">;</span>
+                keybuf <span class="token operator">|</span><span class="token operator">=</span> sta<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>RmtCnt <span class="token operator">></span> <span class="token number">10</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>RmtCnt <span class="token operator">-</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">//每5次重复码处理一次按键 </span>
+                <span class="token punctuation">{</span>
+                    keybuf <span class="token operator">=</span> RmtCnt<span class="token punctuation">;</span>
+                    keybuf <span class="token operator">&lt;&lt;=</span> <span class="token number">8</span><span class="token punctuation">;</span>
+                    keybuf <span class="token operator">|</span><span class="token operator">=</span> sta<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token macro property">#<span class="token directive keyword">else</span></span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>sta <span class="token operator">==</span> KEY_NEXT<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span>sta <span class="token operator">==</span> KEY_PREV<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span>sta <span class="token operator">==</span> KEY_MENU<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span>sta <span class="token operator">==</span> KEY_SELECT<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//仅这四个按键支持连续键功能</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>RmtCnt <span class="token operator">-</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">//每2次重复码处理一次按键</span>
+                <span class="token punctuation">{</span>
+                    keybuf <span class="token operator">=</span> RmtCnt<span class="token punctuation">;</span>
+                    keybuf <span class="token operator">&lt;&lt;=</span> <span class="token number">8</span><span class="token punctuation">;</span>
+                    keybuf <span class="token operator">|</span><span class="token operator">=</span> sta<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>RmtSta <span class="token operator">&amp;</span> <span class="token number">0x80</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// release</span>
+                <span class="token punctuation">{</span>
+                    RmtSta <span class="token operator">&amp;</span><span class="token operator">=</span> <span class="token operator">~</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">&lt;&lt;</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//清除接收到有效按键标识</span>
+                    RmtCnt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">//清除按键次数计数器</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span> <span class="token comment" spellcheck="true">//长按键</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//if((RmtSta &amp; 0x80) == 0)  //release ，并非等到按键释放才处理</span>
+                <span class="token punctuation">{</span>
+                    keybuf <span class="token operator">=</span> RmtCnt<span class="token punctuation">;</span>
+                    keybuf <span class="token operator">&lt;&lt;=</span> <span class="token number">8</span><span class="token punctuation">;</span>
+                    keybuf <span class="token operator">|</span><span class="token operator">=</span> sta<span class="token punctuation">;</span>
+
+                    RmtSta <span class="token operator">&amp;</span><span class="token operator">=</span> <span class="token operator">~</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">&lt;&lt;</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//清除接收到有效按键标识</span>
+                    RmtCnt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">//清除按键次数计数器</span>
+
+                    RmtRec <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">//清除接收值</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token macro property">#<span class="token directive keyword">endif</span></span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> keybuf<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="4、主函数"><a href="#4、主函数" class="headerlink" title="4、主函数"></a>4、主函数</h2><ul>
+<li><p>在 main 函数中，对 IO 口和 定时器进行初始化。</p>
+</li>
+<li><p>主循环中，通过判断接收完成标志位，对接收完成的按键控制码进行打印。</p>
+</li>
+<li><p><code>SystemKeyHandle()</code>函数处理每一个按键的操作逻辑。</p>
+</li>
+<li><p>示例代码如下：</p>
+</li>
+</ul>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    uint16_t SystemKeybuf<span class="token punctuation">;</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+    <span class="token comment" spellcheck="true">//Ir Remote</span>
+    <span class="token function">Remote_Init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        SystemKeybuf <span class="token operator">=</span> <span class="token function">Remote_Scan</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//红外按键扫描</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>SystemKeybuf <span class="token operator">!=</span> <span class="token number">0xffff</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//如果有按键未处理</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//main_printf("SystemKeyBuf = %#x\n",SystemKeybuf);</span>
+            <span class="token function">SystemKeyHandle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            SystemKeybuf <span class="token operator">=</span> <span class="token number">0xffff</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="三、演示"><a href="#三、演示" class="headerlink" title="三、演示"></a>三、演示</h1><p>如下图为串口打印出接收的红外按键值信息：<br><img src="http://blog.cyang.top/20170911164650633?imageView2/0/interlace/1/q/100|watermark/2/text/Y3lhbmcudGVjaA==/font/Y29uc29sYXM=/fontsize/720/fill/I0Q0RUVGMQ==/dissolve/69/gravity/SouthEast/dx/10/dy/10" alt="这里写图片描述"></p>
+<p>说明1：这篇文章所使用的方法主要参考自<a href="http://blog.csdn.net/qq_16255321/article/details/43602535" target="_blank" rel="noopener">这篇文章</a>，代码仅做了部分修改，并在源代码基础上添加了部分代码，用于实现连续键。</p>
+<blockquote>
+<p>本文档基于 STM32 F1 系列 MCU，固件库版本 3.5。其他 MCU 及固件库仅需要对库函数略作修改。</p>
+</blockquote>
+<blockquote>
+<p><a href="http://blog.csdn.net/qq_16255321/article/details/43602535" target="_blank" rel="noopener">参考链接1：cortex_m3_stm32嵌入式学习笔记（二十三）：红外遥控实验（输入捕捉+解码）</a></p>
+</blockquote>
+<blockquote>
+<p><a href="http://cyang.tech/2016/07/19/STM32%20%E7%BA%A2%E5%A4%96%E7%BA%BF%E5%AE%9E%E9%AA%8C/" target="_blank" rel="noopener">参考链接2：STM32 红外线实验</a></p>
+</blockquote>
+<blockquote>
+<p><a href="http://cyang.tech/2017/08/09/IR_Timer/" target="_blank" rel="noopener">参考链接3：STM32 红外线实验</a></p>
+</blockquote>
+<blockquote>
+<p><a href="http://cyang.tech/tags/STM32/" target="_blank" rel="noopener">更多关于 STM32 的文章</a></p>
+</blockquote>
+
+					
+				</div>
+			</div>
+		</article>
+
+		<ul class="am-pagination">
+    
+    	<li class="am-pagination-prev">
+   		<a class="pull-left" href="/2017/10/16/电脑使用模拟器玩手机游戏/" title="电脑使用模拟器玩手机游戏">
+      		&laquo; 上一篇
+		</a>
+		</li>
+	
+	
+		<li class="am-pagination-next">
+		<a class="pull-right" href="/2017/08/19/Arduino Button/" title="Arduino 按键实验">
+			下一篇 &raquo;
+		</a>
+		</li>
+	 
+ </ul>
+        
+
+		<div class="theme-annie-comment-button-container">
+	<button id="annie-comment-button" class="theme-annie-comment-button" onclick="Annie_Comment()">
+		加载评论
+		<!--加载评论-->
+	</button>
+</div>
+
+<div id="annie-comment-container" class="theme-annie-comment-main-container">
+
+	
+		
+			<!-- comment demo -->
+			<style>
+	.clear-left {
+		padding-left: 0;
+	}
+	
+	.clear-right {
+		padding-right: 0;
+	}
+</style>
+<form class="am-form am-g">
+	<fieldset>
+		<div class="am-form-group am-u-sm-4 clear-left">
+			<input type="text" class="" placeholder="name">
+		</div>
+		<div class="am-form-group am-u-sm-4">
+			<input type="email" class="" placeholder="email">
+		</div>
+		<div class="am-form-group am-u-sm-4 clear-right">
+			<input type="text" class="" placeholder="blog">
+		</div>
+
+		<div class="am-form-group">
+			<textarea class="" rows="5" placeholder="just go go"></textarea>
+		</div>
+
+		<p><button type="submit" class="am-btn am-btn-default">发表评论</button></p>
+	</fieldset>
+</form>
+		
+	
+
+</div>
+
+<script type="text/javascript">
+	/* Show Comment */
+	var Annie_Comment = function() {
+		function Show_Hidden(obj) {
+			obj.style.display = 'block';
+		}
+		
+		//var obutton = $('#annie-comment-button');
+		//var obutton = $('#annie-comment-container');
+		var obutton = document.getElementById("annie-comment-button" || "0");
+		var odiv = document.getElementById("annie-comment-container");
+		if( 'obutton' ) {
+			obutton.onclick = function() {
+				Show_Hidden(odiv);
+				$("#annie-comment-button").css("display", 'none');
+				return false;
+			}
+		}
+	};
+
+	(function Annie_Init() {
+		Annie_Comment();
+	})();
+</script>
+		
+		<!--
+	时间：2018-09-24
+	描述：The TOC module refers to 'https://github.com/codefine/hexo-theme-mellow', include toc.ejs、toc.js、toc.css. All rights reserved by codefine. 
+-->
+
+	
+		<aside class="post-widget">
+			<nav class="post-toc-wrap" id="post-toc">
+				
+					<strong>文章目录</strong>
+				
+				
+				<!--toc(post.content)-->
+				<ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、原理"><span class="post-toc-text">一、原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、红外发射协议"><span class="post-toc-text">1、红外发射协议</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、定时器计数和输入捕获"><span class="post-toc-text">2、定时器计数和输入捕获</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、实现方法"><span class="post-toc-text">3、实现方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、实现"><span class="post-toc-text">二、实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、配置定时器2输入捕获通道"><span class="post-toc-text">1、配置定时器2输入捕获通道</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、添加定时器2的中断服务函数"><span class="post-toc-text">2、添加定时器2的中断服务函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、红外按键扫描函数"><span class="post-toc-text">3、红外按键扫描函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、主函数"><span class="post-toc-text">4、主函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、演示"><span class="post-toc-text">三、演示</span></a></li></ol>
+			</nav>
+			<div class="post-toc-bar"><div>
+		</div></div></aside>
+	
+
+	</div>
+</div>
+		</div>
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="blog-text-center">
+		<div class="theme-annie-social">
+				
+				
+					<a href="https://github.com/cyang812" title="Github" target="_blank"><i class="fa fa-github"></i>&nbsp;</a>
+					
+				
+					<a href="https://weibo.com/cyang812" title="Weibo" target="_blank"><i class="fa fa-weibo"></i>&nbsp;</a>
+				
+					
+				
+					<a href="/" title="QQ" target="_blank"><i class="fa fa-qq"></i>&nbsp;</a>
+					
+				
+					<a href="https://twitter.com/cyang812" title="Twitter" target="_blank"><i class="fa fa-twitter"></i>&nbsp;</a>
+						
+				
+		</div>
+	</div>
+
+	<div class="blog-text-center">
+		<div class="theme-annie-copyright">
+			
+				&copy; 2016 - 2018, content by cyang. All Rights Reserved.			       	
+			
+		</div>
+	</div>
+
+	<div class="blog-text-center">
+		<div class="theme-annie-copyright">
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.		
+		</div>
+	</div>
+</footer>
+		<!-- <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script> -->
+
+<script>
+	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
+</script>
+
+<style>
+	.motto {
+		color: #000000;
+		font-size: 20px;
+		margin: 100px 25% 0;
+		width: 50%;
+		line-height: 1.4;
+		font-family:"KaiTi", "STXingkai", "Source Sans Pro", "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
+		text-align: center;
+	}
+	@media(max-width: 890px) {
+		.motto {	
+			margin: 100px 10% 0;
+			width: 80%;
+		}
+	}
+	@media(max-width: 890px) {
+		.motto {
+			margin: 100px 5% 0;
+			width: 90%;
+		}
+	}
+</style>
+
+
+	<script src="/js/motto.js"></script>
+	<script type="text/javascript">
+		$(".motto").html(getMingYanContent());
+	</script>	
+
+
+
+	<div class="popup search-popup local-search-popup">
+    <span class="popup-btn-close">
+      ESC
+    </span>
+    <div class="container">
+      <div class="col-md-8 col-md-offset-2">
+
+        <div class="local-search-header clearfix">
+            <span class="search-icon"></span>
+            <div class="local-search-input-wrapper">
+              <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+            </div>
+        </div>
+
+        <div id="local-search-result"></div>
+
+      </div>
+    </div>
+</div>
+
+<script src="/js/ziploader.js"></script>
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // get search zip version
+    $.get('/searchVersion.txt?t=' + (+new Date()), function(res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson () {
+      initLoad(['/search.zip'], {
+        loadOptions: {
+          success: function(obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function(e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions:{
+          'json':'application/json'
+        }
+      })
+    }
+
+    // search function;
+    var searchFunc = function(search_id, content_id) {
+      'use strict';
+
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function() {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function(data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title ? data.title.trim() : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content ? data.content.trim().replace(/<[^>]+>/g,"") : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function(keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0, position = [], index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+
+            // show search results
+
+            if (isMatch) {
+              // sort index by position of keyword
+
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+
+              // merge hits into slices
+
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+
+                  // move to next position of hit
+
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {
+                  hits: hits,
+                  start: start,
+                  end: end,
+                  searchTextCount: searchTextCountInSlice
+                };
+              }
+
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if(start < 0){
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if(end > content.length){
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+
+              // sort slices in content by search text's count and hits' count
+
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+
+              // select top N slices in content
+
+              var upperBound = parseInt('2');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+
+              // highlight title and content
+
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+
+              var resultItem = '';
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+              } else {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+              }
+
+              slicesOfContent.forEach(function (slice) {
+                resultItem +=  "<p class=\"search-result\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+
+              resultItem += "</li>";
+              resultItems.push({
+                item: resultItem,
+                searchTextCount: searchTextCount,
+                hitCount: hitCount,
+                id: resultItems.length
+              });
+            }
+          })
+        };
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /> no result </div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<ul class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</ul>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+
+      // remove loading animation
+      $('body').css('overflow', '');
+
+      proceedsearch();
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        $('.sb-close').click();
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+	<script type="text/javascript" src="/js/love.js"></script>
+
+
+
+	<script type="text/javascript" src="/js/toc.js"></script>
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript">
+	//generate a random img that pre_name 'from 0 to 110'
+	var random_bg = Math.floor(Math.random() * 109 + 1);
+
+	//var bg = 'url(/img/random/' + random_bg + '.jpg)';		
+	var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+
+	$("#header-bg-2").css("background-image", bg);
+</script>
+		
+		<!--back to top-->
+        <style type="text/css">
+	#totop {
+		background: white;
+		border-radius: 50%;
+		position: fixed;
+		right: 5.4%;
+		bottom: 80px;
+		cursor: pointer;
+	}
+	
+	#totop a {
+		color: #474747;
+		background-color: transparent;
+		padding: 10px;
+		text-decoration: none;
+	}
+	
+	@media(max-width:512px) {
+		#totop {
+			display: none;
+			visibility: hidden;
+		}
+	}
+</style>
+
+
+	<div id="totop">
+  		<a href="javascript:;" class="fa fa-arrow-up"></a>
+	</div>
+
+	</body>
+	</html>
+
